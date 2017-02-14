@@ -15,12 +15,20 @@ class TrackCell: UICollectionViewCell {
     
     var track: Tracks!
     
-    func configureCell(track: Tracks) {
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        layer.cornerRadius = 10.0
+    }
+    
+    func configureCell(_ track: Tracks) {
         self.track = track
         
         nameLbl.text = self.track.name.capitalized
         thumbImage.image = UIImage(named: "\(self.track.trackId)")
         
     }
+    
+    
     
 }

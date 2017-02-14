@@ -70,7 +70,7 @@
                                                         </label>
                                                     </subviews>
                                                 </view>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.12549019607843137" green="0.12549019607843137" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="FpZ-ch-kas" firstAttribute="leading" secondItem="5jt-Fi-7HX" secondAttribute="leading" id="2Wu-R8-0Ae"/>
                                                     <constraint firstAttribute="bottom" secondItem="FpZ-ch-kas" secondAttribute="bottom" id="9D8-G0-Wcj"/>
@@ -111,6 +111,9 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="wGj-1U-b3d" secondAttribute="bottom" id="ylc-Lz-NfB"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collection" destination="Nj2-RA-Ri5" id="ZAJ-5O-uaF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

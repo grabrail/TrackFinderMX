@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A3C0F071E533DE900A33D13 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3C0F061E533DE900A33D13 /* TrackCell.swift */; };
+		1A3C0F091E53459500A33D13 /* csv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3C0F081E53459500A33D13 /* csv.swift */; };
 		1ACC3C1C1E531CDA0080D5D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC3C1B1E531CDA0080D5D4 /* AppDelegate.swift */; };
 		1ACC3C1E1E531CDA0080D5D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC3C1D1E531CDA0080D5D4 /* ViewController.swift */; };
 		1ACC3C211E531CDA0080D5D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ACC3C1F1E531CDA0080D5D4 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		1A3C0F061E533DE900A33D13 /* TrackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
+		1A3C0F081E53459500A33D13 /* csv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = csv.swift; sourceTree = "<group>"; };
 		1ACC3C181E531CDA0080D5D4 /* TrackFinderMX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackFinderMX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ACC3C1B1E531CDA0080D5D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ACC3C1D1E531CDA0080D5D4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				1ACC3C311E5323050080D5D4 /* Model */,
 				1ACC3C1B1E531CDA0080D5D4 /* AppDelegate.swift */,
 				1ACC3C1D1E531CDA0080D5D4 /* ViewController.swift */,
+				1A3C0F081E53459500A33D13 /* csv.swift */,
 				1ACC3C1F1E531CDA0080D5D4 /* Main.storyboard */,
 				1ACC3C221E531CDB0080D5D4 /* Assets.xcassets */,
 				1ACC3C2F1E531F910080D5D4 /* tracks.csv */,
@@ -125,6 +128,7 @@
 					1ACC3C171E531CDA0080D5D4 = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = 63NMQ666L6;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -171,6 +175,7 @@
 				1ACC3C1E1E531CDA0080D5D4 /* ViewController.swift in Sources */,
 				1ACC3C1C1E531CDA0080D5D4 /* AppDelegate.swift in Sources */,
 				1A3C0F071E533DE900A33D13 /* TrackCell.swift in Sources */,
+				1A3C0F091E53459500A33D13 /* csv.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
