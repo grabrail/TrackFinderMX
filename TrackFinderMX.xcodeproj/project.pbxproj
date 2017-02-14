@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A3C0F071E533DE900A33D13 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3C0F061E533DE900A33D13 /* TrackCell.swift */; };
 		1ACC3C1C1E531CDA0080D5D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC3C1B1E531CDA0080D5D4 /* AppDelegate.swift */; };
 		1ACC3C1E1E531CDA0080D5D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC3C1D1E531CDA0080D5D4 /* ViewController.swift */; };
 		1ACC3C211E531CDA0080D5D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ACC3C1F1E531CDA0080D5D4 /* Main.storyboard */; };
@@ -14,9 +15,11 @@
 		1ACC3C261E531CDB0080D5D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ACC3C241E531CDB0080D5D4 /* LaunchScreen.storyboard */; };
 		1ACC3C2E1E531F490080D5D4 /* pokemon.csv in Resources */ = {isa = PBXBuildFile; fileRef = 1ACC3C2D1E531F490080D5D4 /* pokemon.csv */; };
 		1ACC3C301E531F910080D5D4 /* tracks.csv in Resources */ = {isa = PBXBuildFile; fileRef = 1ACC3C2F1E531F910080D5D4 /* tracks.csv */; };
+		1ACC3C331E53231E0080D5D4 /* Tracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC3C321E53231E0080D5D4 /* Tracks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A3C0F061E533DE900A33D13 /* TrackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 		1ACC3C181E531CDA0080D5D4 /* TrackFinderMX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackFinderMX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ACC3C1B1E531CDA0080D5D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ACC3C1D1E531CDA0080D5D4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -26,6 +29,7 @@
 		1ACC3C271E531CDB0080D5D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1ACC3C2D1E531F490080D5D4 /* pokemon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pokemon.csv; sourceTree = "<group>"; };
 		1ACC3C2F1E531F910080D5D4 /* tracks.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tracks.csv; sourceTree = "<group>"; };
+		1ACC3C321E53231E0080D5D4 /* Tracks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tracks.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A3C0F031E5339F300A33D13 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1A3C0F061E533DE900A33D13 /* TrackCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		1ACC3C0F1E531CDA0080D5D4 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +70,8 @@
 		1ACC3C1A1E531CDA0080D5D4 /* TrackFinderMX */ = {
 			isa = PBXGroup;
 			children = (
+				1A3C0F031E5339F300A33D13 /* View */,
+				1ACC3C311E5323050080D5D4 /* Model */,
 				1ACC3C1B1E531CDA0080D5D4 /* AppDelegate.swift */,
 				1ACC3C1D1E531CDA0080D5D4 /* ViewController.swift */,
 				1ACC3C1F1E531CDA0080D5D4 /* Main.storyboard */,
@@ -68,6 +82,14 @@
 				1ACC3C271E531CDB0080D5D4 /* Info.plist */,
 			);
 			path = TrackFinderMX;
+			sourceTree = "<group>";
+		};
+		1ACC3C311E5323050080D5D4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1ACC3C321E53231E0080D5D4 /* Tracks.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,8 +167,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ACC3C331E53231E0080D5D4 /* Tracks.swift in Sources */,
 				1ACC3C1E1E531CDA0080D5D4 /* ViewController.swift in Sources */,
 				1ACC3C1C1E531CDA0080D5D4 /* AppDelegate.swift in Sources */,
+				1A3C0F071E533DE900A33D13 /* TrackCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +336,7 @@
 				1ACC3C2C1E531CDB0080D5D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
