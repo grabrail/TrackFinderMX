@@ -10,16 +10,15 @@ import Foundation
 
 class Tracks {
     
-    fileprivate var _name: String!
-    fileprivate var _trackId: Int!
+    private var _name: String!
+    private var _trackId: Int!
+
     
     var name: String {
-        
         return _name
     }
     
     var trackId: Int {
-        
         return _trackId
     }
     
@@ -27,5 +26,4 @@ class Tracks {
         self._name = name
         self._trackId = trackId
     }
-    
 }

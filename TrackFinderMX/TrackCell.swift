@@ -25,6 +25,7 @@ class TrackCell: UICollectionViewCell {
         self.track = track
         
         nameLbl.text = self.track.name.capitalized
+        
         thumbImage.image = UIImage(named: "\(self.track.trackId)")
         
     }

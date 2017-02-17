@@ -9,12 +9,17 @@
 /* Begin PBXBuildFile section */
 		1A3C0F071E533DE900A33D13 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3C0F061E533DE900A33D13 /* TrackCell.swift */; };
 		1A3C0F091E53459500A33D13 /* csv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3C0F081E53459500A33D13 /* csv.swift */; };
+		1A3C0F0B1E536D4200A33D13 /* CocoBiker.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A3C0F0A1E536D4200A33D13 /* CocoBiker.ttf */; };
+		1A3C0F101E547A3000A33D13 /* defused.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A3C0F0F1E547A3000A33D13 /* defused.ttf */; };
+		1A3C0F141E54807C00A33D13 /* TrackDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3C0F131E54807C00A33D13 /* TrackDetailVC.swift */; };
+		1A5C46631E54975C005DA585 /* LocateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5C46621E54975C005DA585 /* LocateVC.swift */; };
+		1A91E0601E5724DA00B930CA /* tracks.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A91E05F1E5724D900B930CA /* tracks.json */; };
+		1A91E0621E57281800B930CA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A91E0611E57281800B930CA /* Constants.swift */; };
 		1ACC3C1C1E531CDA0080D5D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC3C1B1E531CDA0080D5D4 /* AppDelegate.swift */; };
 		1ACC3C1E1E531CDA0080D5D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC3C1D1E531CDA0080D5D4 /* ViewController.swift */; };
 		1ACC3C211E531CDA0080D5D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ACC3C1F1E531CDA0080D5D4 /* Main.storyboard */; };
 		1ACC3C231E531CDB0080D5D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ACC3C221E531CDB0080D5D4 /* Assets.xcassets */; };
 		1ACC3C261E531CDB0080D5D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ACC3C241E531CDB0080D5D4 /* LaunchScreen.storyboard */; };
-		1ACC3C2E1E531F490080D5D4 /* pokemon.csv in Resources */ = {isa = PBXBuildFile; fileRef = 1ACC3C2D1E531F490080D5D4 /* pokemon.csv */; };
 		1ACC3C301E531F910080D5D4 /* tracks.csv in Resources */ = {isa = PBXBuildFile; fileRef = 1ACC3C2F1E531F910080D5D4 /* tracks.csv */; };
 		1ACC3C331E53231E0080D5D4 /* Tracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC3C321E53231E0080D5D4 /* Tracks.swift */; };
 /* End PBXBuildFile section */
@@ -22,6 +27,12 @@
 /* Begin PBXFileReference section */
 		1A3C0F061E533DE900A33D13 /* TrackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 		1A3C0F081E53459500A33D13 /* csv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = csv.swift; sourceTree = "<group>"; };
+		1A3C0F0A1E536D4200A33D13 /* CocoBiker.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CocoBiker.ttf; sourceTree = "<group>"; };
+		1A3C0F0F1E547A3000A33D13 /* defused.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = defused.ttf; sourceTree = "<group>"; };
+		1A3C0F131E54807C00A33D13 /* TrackDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackDetailVC.swift; sourceTree = "<group>"; };
+		1A5C46621E54975C005DA585 /* LocateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocateVC.swift; sourceTree = "<group>"; };
+		1A91E05F1E5724D900B930CA /* tracks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tracks.json; sourceTree = "<group>"; };
+		1A91E0611E57281800B930CA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1ACC3C181E531CDA0080D5D4 /* TrackFinderMX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackFinderMX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ACC3C1B1E531CDA0080D5D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ACC3C1D1E531CDA0080D5D4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,7 +40,6 @@
 		1ACC3C221E531CDB0080D5D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1ACC3C251E531CDB0080D5D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1ACC3C271E531CDB0080D5D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1ACC3C2D1E531F490080D5D4 /* pokemon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pokemon.csv; sourceTree = "<group>"; };
 		1ACC3C2F1E531F910080D5D4 /* tracks.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tracks.csv; sourceTree = "<group>"; };
 		1ACC3C321E53231E0080D5D4 /* Tracks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tracks.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -53,6 +63,36 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		1A3C0F0C1E536D5900A33D13 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1ACC3C1D1E531CDA0080D5D4 /* ViewController.swift */,
+				1A3C0F131E54807C00A33D13 /* TrackDetailVC.swift */,
+				1A5C46621E54975C005DA585 /* LocateVC.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		1A3C0F0D1E536D6500A33D13 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1ACC3C2F1E531F910080D5D4 /* tracks.csv */,
+				1A91E05F1E5724D900B930CA /* tracks.json */,
+				1A3C0F0A1E536D4200A33D13 /* CocoBiker.ttf */,
+				1A3C0F0F1E547A3000A33D13 /* defused.ttf */,
+				1A91E0611E57281800B930CA /* Constants.swift */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		1A3C0F0E1E536D8100A33D13 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				1A3C0F081E53459500A33D13 /* csv.swift */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
 		1ACC3C0F1E531CDA0080D5D4 = {
 			isa = PBXGroup;
 			children = (
@@ -72,15 +112,14 @@
 		1ACC3C1A1E531CDA0080D5D4 /* TrackFinderMX */ = {
 			isa = PBXGroup;
 			children = (
-				1A3C0F031E5339F300A33D13 /* View */,
 				1ACC3C311E5323050080D5D4 /* Model */,
-				1ACC3C1B1E531CDA0080D5D4 /* AppDelegate.swift */,
-				1ACC3C1D1E531CDA0080D5D4 /* ViewController.swift */,
-				1A3C0F081E53459500A33D13 /* csv.swift */,
+				1A3C0F0C1E536D5900A33D13 /* Controller */,
+				1A3C0F031E5339F300A33D13 /* View */,
+				1A3C0F0E1E536D8100A33D13 /* Util */,
+				1A3C0F0D1E536D6500A33D13 /* Resources */,
 				1ACC3C1F1E531CDA0080D5D4 /* Main.storyboard */,
+				1ACC3C1B1E531CDA0080D5D4 /* AppDelegate.swift */,
 				1ACC3C221E531CDB0080D5D4 /* Assets.xcassets */,
-				1ACC3C2F1E531F910080D5D4 /* tracks.csv */,
-				1ACC3C2D1E531F490080D5D4 /* pokemon.csv */,
 				1ACC3C241E531CDB0080D5D4 /* LaunchScreen.storyboard */,
 				1ACC3C271E531CDB0080D5D4 /* Info.plist */,
 			);
@@ -156,11 +195,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A3C0F0B1E536D4200A33D13 /* CocoBiker.ttf in Resources */,
 				1ACC3C261E531CDB0080D5D4 /* LaunchScreen.storyboard in Resources */,
+				1A91E0601E5724DA00B930CA /* tracks.json in Resources */,
 				1ACC3C231E531CDB0080D5D4 /* Assets.xcassets in Resources */,
 				1ACC3C301E531F910080D5D4 /* tracks.csv in Resources */,
-				1ACC3C2E1E531F490080D5D4 /* pokemon.csv in Resources */,
 				1ACC3C211E531CDA0080D5D4 /* Main.storyboard in Resources */,
+				1A3C0F101E547A3000A33D13 /* defused.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,7 +216,10 @@
 				1ACC3C1E1E531CDA0080D5D4 /* ViewController.swift in Sources */,
 				1ACC3C1C1E531CDA0080D5D4 /* AppDelegate.swift in Sources */,
 				1A3C0F071E533DE900A33D13 /* TrackCell.swift in Sources */,
+				1A5C46631E54975C005DA585 /* LocateVC.swift in Sources */,
 				1A3C0F091E53459500A33D13 /* csv.swift in Sources */,
+				1A3C0F141E54807C00A33D13 /* TrackDetailVC.swift in Sources */,
+				1A91E0621E57281800B930CA /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
