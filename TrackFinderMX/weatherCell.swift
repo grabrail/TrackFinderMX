@@ -11,7 +11,7 @@ import UIKit
 class WeatherCell: UITableViewCell {
     
     @IBOutlet weak var weatherIcon: UIImageView!
-    @IBOutlet weak var dayLabel: UILabel!
+    @IBOutlet weak var dayLable: UILabel!
     @IBOutlet weak var weatherType: UILabel!
     @IBOutlet weak var Temp: UILabel!
     
@@ -21,8 +21,6 @@ class WeatherCell: UITableViewCell {
         Temp.text = forecast.Temp
         weatherType.text = forecast.weatherType
         weatherIcon.image = UIImage(named: forecast.weatherType)
-        dayLabel.text = forecast.date
+        dayLable.text = forecast.date
     }
-    
-    
 }

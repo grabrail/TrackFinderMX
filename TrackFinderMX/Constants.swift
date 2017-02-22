@@ -12,7 +12,11 @@ let jsonURL = "https://api.myjson.com/bins/q9efh"
 
 typealias DownLoadComplete = () -> ()
 
-let FORECAST_URL = "http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/350497?res=3hourly&key=682ef7b6-add5-4199-875b-085ffd630466"
+
+let FORECAST_URL = "http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/?res=3hourly&key=682ef7b6-add5-4199-875b-085ffd630466"
+//let FCEND_URL = "?res=3hourly&key=682ef7b6-add5-4199-875b-085ffd630466"
+
+//350497
 
 let dayDict = [
     "1":"Monday",

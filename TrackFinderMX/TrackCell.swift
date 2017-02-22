@@ -11,7 +11,7 @@ import UIKit
 class TrackCell: UICollectionViewCell {
     
     @IBOutlet weak var thumbImage: UIImageView!
-    @IBOutlet weak var nameLbl: UILabel!
+    //@IBOutlet weak var nameLbl: UILabel!
     
     var track: Tracks!
     
@@ -24,7 +24,7 @@ class TrackCell: UICollectionViewCell {
     func configureCell(_ track: Tracks) {
         self.track = track
         
-        nameLbl.text = self.track.name.capitalized
+        //nameLbl.text = self.track.name.capitalized
         
         thumbImage.image = UIImage(named: "\(self.track.trackId)")
         

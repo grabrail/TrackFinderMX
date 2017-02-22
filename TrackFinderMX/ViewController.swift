@@ -42,7 +42,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 let name = row["name"]!
                 let postcode = row["postcode"]!
                 let trackType = row["type"]!
-                let tr = Tracks(name: name, trackId: trackId, postcode: postcode, trackType: trackType)
+                let locID = row["locID"]!
+                let tr = Tracks(name: name, trackId: trackId, postcode: postcode, trackType: trackType, locId: locID)
                 track.append(tr)
                 }
             } catch let err as NSError {

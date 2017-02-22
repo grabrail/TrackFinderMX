@@ -24,19 +24,19 @@ class TrackDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     override func viewDidLoad() {
         super.viewDidLoad()
+            loadWeather()
         
         tableView.delegate = self
         tableView.dataSource = self
 
         nameLbl.text = track.name
-        
-        
-        //track.downloadtrackDetails {
-            
-            
-            self.updateUI()
-        //}
     }
+        func loadWeather() {
+            self.downloadForecastData {
+                    self.updateUI()
+                }
+            }
+        
     
     func updateUI() {
         
@@ -50,8 +50,9 @@ class TrackDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func downloadForecastData(completed: @escaping DownLoadComplete) {
-        //download forecast weather data for TableView
-        let forecastURL = URL(string: FORECAST_URL)!
+        let LID = track.locID
+        let forecastURL = URL(string: "http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/\(LID)?res=3hourly&key=682ef7b6-add5-4199-875b-085ffd630466")!
+        
         Alamofire.request(forecastURL).responseJSON { response in
             let result = response.result
             
@@ -60,15 +61,14 @@ class TrackDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                     if let DV = SiteRep["DV"] as? Dictionary<String,Any> {
                         if let location = DV["Location"] as? Dictionary<String, Any> {
                             if let period = location["Period"] as? [Dictionary<String, Any>] {
-                                //if let Rep = period[0]["Rep"] as? [Dictionary<String, Any>] {
-                                
-                                
+                               
                                 for obj in period {
                                     let forecast = Forecast(weatherDict: obj)
                                     self.forecasts.append(forecast)
+                                    print("got this far")
                                     print(obj)
                                 }
-                                self.forecasts.remove(at: 0)
+                                //self.forecasts.remove(at: 0)
                                 self.tableView.reloadData()
                             }
                             
@@ -80,14 +80,14 @@ class TrackDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         }
     }
     
-    
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        //print(forecasts.count)
+        return forecasts.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -100,6 +100,7 @@ class TrackDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         else {
             return WeatherCell()
         }
+       
         
     }
 

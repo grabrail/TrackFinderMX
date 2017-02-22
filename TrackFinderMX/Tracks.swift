@@ -17,8 +17,17 @@ class Tracks {
     private var _postcode: String!
     private var _trackType: String!
     private var trackURL: String!
+    private var _locId: String!
     
 
+    
+    
+    var locID: String {
+        if _locId == nil {
+            _locId = ""
+        }
+        return _locId
+    }
     
     var trackType: String {
         if _trackType == nil {
@@ -46,12 +55,13 @@ class Tracks {
         return _trackId
     }
     
-    init(name: String, trackId: Int, postcode: String, trackType: String) {
+    init(name: String, trackId: Int, postcode: String, trackType: String, locId: String) {
         
         self._name = name
         self._trackId = trackId
         self._postcode = postcode
         self._trackType = trackType
+        self._locId = locId
         
         self.trackURL = "\(jsonURL)"
         
