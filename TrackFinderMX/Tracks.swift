@@ -18,8 +18,22 @@ class Tracks {
     private var _trackType: String!
     private var trackURL: String!
     private var _locId: String!
+    private var _lat: Double!
+    private var _lon: Double!
     
-
+    var lat: Double {
+        if _lat == nil {
+            _lat = 0.0
+        }
+        return _lat
+    }
+    
+    var lon: Double {
+        if _lon == nil {
+            _lon = 0.0
+        }
+        return _lon
+    }
     
     
     var locID: String {
@@ -55,36 +69,22 @@ class Tracks {
         return _trackId
     }
     
-    init(name: String, trackId: Int, postcode: String, trackType: String, locId: String) {
+    init(name: String, trackId: Int, postcode: String, trackType: String, locId: String, lon: Double, lat: Double) {
         
         self._name = name
         self._trackId = trackId
         self._postcode = postcode
         self._trackType = trackType
         self._locId = locId
+        self._lat = lat
+        self._lon = lon
         
         self.trackURL = "\(jsonURL)"
+        print(self.lon)
+        print(self.lat)
         
         
     }
-    
-    
-    
-//    func downloadtrackDetails(completed: @escaping DownLoadComplete) {
-//        Alamofire.request(trackURL).responseJSON { (response) in
-//            
-//            if let dict = response.result.value as? [Dictionary<String, Any>] {
-//                if let postcode = dict[self._trackId]["postcode"]  as? String {
-//                    self._postcode = postcode
-//                    print(self.trackId)
-//                }
-//                if let trackType = dict[self._trackId]["type"] as? String {
-//                    self._trackType = trackType
-//                }
-//            }
-//            completed()
-//        }
-//    }
 }
 
 

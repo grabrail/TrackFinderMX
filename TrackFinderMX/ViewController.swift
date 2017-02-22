@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMaps
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate{
 
@@ -43,13 +44,18 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 let postcode = row["postcode"]!
                 let trackType = row["type"]!
                 let locID = row["locID"]!
-                let tr = Tracks(name: name, trackId: trackId, postcode: postcode, trackType: trackType, locId: locID)
+                let lon = Double(row["long"]!)!
+                let lat = Double(row["lat"]!)!
+                let tr = Tracks(name: name, trackId: trackId, postcode: postcode, trackType: trackType, locId: locID, lon: lon, lat: lat)
+                
                 track.append(tr)
+                
                 }
             } catch let err as NSError {
             print(err.debugDescription)
+                
         }
-        
+       
     }
     
     
@@ -142,7 +148,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
          }
       }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "TrackDetailVC" {
             if let detailsVC = segue.destination as? TrackDetailVC {
                 if let tr = sender as? Tracks {

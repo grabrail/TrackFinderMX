@@ -30,6 +30,7 @@ class TrackDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         tableView.dataSource = self
 
         nameLbl.text = track.name
+
     }
         func loadWeather() {
             self.downloadForecastData {
@@ -65,9 +66,8 @@ class TrackDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                                 for obj in period {
                                     let forecast = Forecast(weatherDict: obj)
                                     self.forecasts.append(forecast)
-                                    print("got this far")
-                                    print(obj)
                                 }
+                                
                                 //self.forecasts.remove(at: 0)
                                 self.tableView.reloadData()
                             }
@@ -79,6 +79,12 @@ class TrackDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             completed()
         }
     }
+    
+//    @IBAction func LocateBtnPressed() {
+        
+//        performSegue(withIdentifier: "LocateVC", sender: <#Any?#>)
+//    }
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -101,8 +107,19 @@ class TrackDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             return WeatherCell()
         }
        
-        
+     
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "LocateVC" {
+//            if let LVC = segue.destination as? LocateVC {
+//                if let tr = sender as? Tracks {
+//                    LVC.track = tr
+//                }
+//                print(track.lat)
+//            }
+//        }
+//    }
 
     
 }

@@ -4,4 +4,6 @@ use_frameworks!
 
 target 'TrackFinderMX' do
     pod 'Alamofire', '~> 4.3'
+    pod 'GoogleMaps'
+    pod 'GooglePlaces'
 end
