@@ -11,30 +11,56 @@ import GoogleMaps
 
 class LocateVC: UIViewController {
 
-    var track: Tracks!
-    
- 
-    @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var mapLoader: GMSMapView!
+    var lat: Double!
+    var lon: Double!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //override func loadView() {
-        // Create a GMSCameraPosition that tells the map to display the
-        // coordinate -33.86,151.20 at zoom level 6.
+        loadMap()
         
-        
-        
-        
-        
-        let camera = GMSCameraPosition.camera(withLatitude:  (track.lat) , longitude: (track.lon), zoom: 6.0)
-        let mapView = GMSMapView.map(withFrame: self.mapView.bounds, camera: camera)
-        self.mapView = mapView
-        
-        // Creates a marker in the center of the map.
+     }
+
+    func loadMap() {
+        print(lat)
+        print(lon)
+    
+        let camera = GMSCameraPosition.camera(withLatitude: lat,longitude: lon, zoom:6)
+        let mapView = GMSMapView.map(withFrame: self.mapLoader.bounds, camera:camera)
         let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
-        marker.title = "Sydney"
-        marker.snippet = "Australia"
-        marker.map = self.mapView
-    }
+        
+        marker.position = camera.target
+        marker.snippet = "Hello World"
+        marker.appearAnimation = kGMSMarkerAnimationPop
+        marker.map = self.mapLoader
+        
+        self.mapLoader = mapView
+        
+      }
 }
+
+
+
+
+
+    
+//       //override func loadView() {
+//        // Create a GMSCameraPosition that tells the map to display the
+//        // coordinate -33.86,151.20 at zoom level 6.
+//        
+//        let camera = GMSCameraPosition.camera(withLatitude:  -33.86 , longitude: 151.20, zoom: 6.0)
+//        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+//        //let mapView = GMSMapView.map(withFrame: self.mapView.bounds, camera: camera)
+//        self.mapView = mapView
+//        
+//    }
+//    
+//    func viewDidAppear(){
+//        // Creates a marker in the center of the map.
+//        let marker = GMSMarker()
+//        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
+//        marker.title = "Sydney"
+//        marker.snippet = "Australia"
+//        marker.map = self.mapView
+//    }
+//}

@@ -21,6 +21,8 @@ class TrackDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     var forecast: Forecast!
     var forecasts = [Forecast]()
     
+    var vtrack = [Tracks]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +34,8 @@ class TrackDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         nameLbl.text = track.name
 
     }
-        func loadWeather() {
+    
+    func loadWeather() {
             self.downloadForecastData {
                     self.updateUI()
                 }
@@ -48,6 +51,7 @@ class TrackDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
 
     @IBAction func backBtnPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "LocateVC", sender: Any?.self)
     }
     
     func downloadForecastData(completed: @escaping DownLoadComplete) {
@@ -110,16 +114,19 @@ class TrackDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
      
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "LocateVC" {
-//            if let LVC = segue.destination as? LocateVC {
-//                if let tr = sender as? Tracks {
-//                    LVC.track = tr
-//                }
-//                print(track.lat)
-//            }
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "LocateVC" {
+            if let LocateVC = segue.destination as? LocateVC {
+                //if let tr = sender as? Tracks {
+                    print(track.lon)
+                    print(track.lat)
+                    
+                    LocateVC.lon = track.lon
+                    LocateVC.lat = track.lat
+                //}
+            }
+        }
+    }
 
     
 }
