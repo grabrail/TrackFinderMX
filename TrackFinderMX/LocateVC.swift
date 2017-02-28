@@ -7,41 +7,87 @@
 //
 
 import UIKit
-import GoogleMaps
+import MapKit
+import CoreLocation
 
-class LocateVC: UIViewController {
+class LocateVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
-    @IBOutlet weak var mapLoader: GMSMapView!
+    @IBOutlet weak var mapView: MKMapView!
     var lat: Double!
     var lon: Double!
     var name: String!
+    var locationManager = CLLocationManager()
+    
+    func checkLocationAuthorizationStatus() {
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            mapView.showsUserLocation = true
+        } else {
+            locationManager.requestWhenInUseAuthorization()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadMap()
         
-     }
+
+        let coordinate = CLLocationCoordinate2DMake(lat,lon)
+        let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
+        mapItem.name = "Target location"
+        mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
+        
     
-    func loadMap() {
-        print(lat)
-        print(lon)
-        print(name)
-    
-        let camera = GMSCameraPosition.camera(withLatitude: lat,longitude: lon, zoom:6)
-        let mapView = GMSMapView.map(withFrame: self.mapLoader.bounds, camera:camera)
-        let marker = GMSMarker()
         
-        marker.position = camera.target
-        marker.snippet = name
-        marker.appearAnimation = kGMSMarkerAnimationPop
-        marker.map = self.mapLoader
         
-        self.mapLoader = mapView
         
-      }
-    @IBAction func backBtn(_ sender: UIButton) {
-        dismiss(animated: false, completion: nil)
-    
+        
+        //        mapView.delegate = self
+//        mapView.showsUserLocation = true
+//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//        locationManager.delegate = self
+//        
+//        checkLocationAuthorizationStatus()
+//        
+//        annotation.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+//        mapView.addAnnotation(annotation)
+//        
+//        
+//        let request = MKDirectionsRequest()
+//        request.source = MKMapItem.forCurrentLocation()
+//        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: lat,longitude: lon)))
+//        request.requestsAlternateRoutes = true
+//        request.transportType = .automobile
+//        
+//        let directions = MKDirections(request: request)
+//        
+//        directions.calculate {[unowned self] response, error in
+//            guard let unwrappedResponse = response else { return }
+//            
+//            for route in unwrappedResponse.routes {
+//                self.mapView.add(route.polyline)
+//                self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+//            }
+//        }
+//      }
+//    
+//    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+//        let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
+//        renderer.strokeColor = UIColor.blue
+//        return renderer
+//    }
+//    
+//    let regionRadius: CLLocationDistance = 1000
+//    let annotation = MKPointAnnotation()
+//        func centerMapOnLocation(location: CLLocation) {
+//        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0)
+//        mapView.setRegion(coordinateRegion, animated: true)
+//            //mapView.showsUserLocation = true
+//    
+//            
+//    }
+//    
+//    @IBAction func backBtn(_ sender: UIButton) {
+//        dismiss(animated: false, completion: nil)
+//    
     }
 
 

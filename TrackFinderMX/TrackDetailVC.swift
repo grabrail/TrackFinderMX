@@ -8,8 +8,10 @@
 
 import UIKit
 import Alamofire
+import MapKit
+import CoreLocation
 
-class TrackDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class TrackDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate, CLLocationManagerDelegate{
     
     var track: Tracks!
     
@@ -85,7 +87,12 @@ class TrackDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     @IBAction func LocateBtnPressed() {
         
-        performSegue(withIdentifier: "LocateVC", sender: track)
+        let coordinate = CLLocationCoordinate2DMake(track.lat,track.lon)
+        let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
+        mapItem.name = "Target location"
+        mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
+        
+        //performSegue(withIdentifier: "LocateVC", sender: track)
     }
     
    
