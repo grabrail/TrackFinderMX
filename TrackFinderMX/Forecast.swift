@@ -52,8 +52,8 @@ class Forecast {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd"
             let dateObj = dateFormatter.date(from: dateString)
-            let myCalendar = Calendar(identifier: .gregorian)
-            let weekDay = myCalendar.component(.weekday, from: dateObj!)
+            //let myCalendar = Calendar(identifier: .gregorian)
+            //let weekDay = myCalendar.component(.weekday, from: dateObj!)
             
             self._date = dateObj!.dayOfTheWeek()
         }

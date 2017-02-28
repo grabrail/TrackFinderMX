@@ -12,13 +12,13 @@
 		1A3C0F0B1E536D4200A33D13 /* CocoBiker.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A3C0F0A1E536D4200A33D13 /* CocoBiker.ttf */; };
 		1A3C0F101E547A3000A33D13 /* defused.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A3C0F0F1E547A3000A33D13 /* defused.ttf */; };
 		1A3C0F141E54807C00A33D13 /* TrackDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3C0F131E54807C00A33D13 /* TrackDetailVC.swift */; };
+		1A4DD96C1E60FD3F002781E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4DD96A1E60FD3F002781E8 /* Main.storyboard */; };
 		1A5A3EF01E5C867900764964 /* weatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5A3EEF1E5C867900764964 /* weatherCell.swift */; };
 		1A5A3EF21E5C86C300764964 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5A3EF11E5C86C300764964 /* Forecast.swift */; };
 		1A5C46631E54975C005DA585 /* LocateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5C46621E54975C005DA585 /* LocateVC.swift */; };
 		1A91E0621E57281800B930CA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A91E0611E57281800B930CA /* Constants.swift */; };
 		1ACC3C1C1E531CDA0080D5D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC3C1B1E531CDA0080D5D4 /* AppDelegate.swift */; };
 		1ACC3C1E1E531CDA0080D5D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC3C1D1E531CDA0080D5D4 /* ViewController.swift */; };
-		1ACC3C211E531CDA0080D5D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ACC3C1F1E531CDA0080D5D4 /* Main.storyboard */; };
 		1ACC3C231E531CDB0080D5D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ACC3C221E531CDB0080D5D4 /* Assets.xcassets */; };
 		1ACC3C261E531CDB0080D5D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ACC3C241E531CDB0080D5D4 /* LaunchScreen.storyboard */; };
 		1ACC3C301E531F910080D5D4 /* tracks.csv in Resources */ = {isa = PBXBuildFile; fileRef = 1ACC3C2F1E531F910080D5D4 /* tracks.csv */; };
@@ -32,6 +32,7 @@
 		1A3C0F0A1E536D4200A33D13 /* CocoBiker.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CocoBiker.ttf; sourceTree = "<group>"; };
 		1A3C0F0F1E547A3000A33D13 /* defused.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = defused.ttf; sourceTree = "<group>"; };
 		1A3C0F131E54807C00A33D13 /* TrackDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackDetailVC.swift; sourceTree = "<group>"; };
+		1A4DD96B1E60FD3F002781E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1A5A3EEF1E5C867900764964 /* weatherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = weatherCell.swift; sourceTree = "<group>"; };
 		1A5A3EF11E5C86C300764964 /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		1A5C46621E54975C005DA585 /* LocateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocateVC.swift; sourceTree = "<group>"; };
@@ -39,7 +40,6 @@
 		1ACC3C181E531CDA0080D5D4 /* TrackFinderMX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackFinderMX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ACC3C1B1E531CDA0080D5D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ACC3C1D1E531CDA0080D5D4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1ACC3C201E531CDA0080D5D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1ACC3C221E531CDB0080D5D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1ACC3C251E531CDB0080D5D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1ACC3C271E531CDB0080D5D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -136,9 +136,9 @@
 				1A3C0F031E5339F300A33D13 /* View */,
 				1A3C0F0E1E536D8100A33D13 /* Util */,
 				1A3C0F0D1E536D6500A33D13 /* Resources */,
-				1ACC3C1F1E531CDA0080D5D4 /* Main.storyboard */,
 				1ACC3C1B1E531CDA0080D5D4 /* AppDelegate.swift */,
 				1ACC3C221E531CDB0080D5D4 /* Assets.xcassets */,
+				1A4DD96A1E60FD3F002781E8 /* Main.storyboard */,
 				1ACC3C241E531CDB0080D5D4 /* LaunchScreen.storyboard */,
 				1ACC3C271E531CDB0080D5D4 /* Info.plist */,
 			);
@@ -228,8 +228,8 @@
 				1A3C0F0B1E536D4200A33D13 /* CocoBiker.ttf in Resources */,
 				1ACC3C261E531CDB0080D5D4 /* LaunchScreen.storyboard in Resources */,
 				1ACC3C231E531CDB0080D5D4 /* Assets.xcassets in Resources */,
+				1A4DD96C1E60FD3F002781E8 /* Main.storyboard in Resources */,
 				1ACC3C301E531F910080D5D4 /* tracks.csv in Resources */,
-				1ACC3C211E531CDA0080D5D4 /* Main.storyboard in Resources */,
 				1A3C0F101E547A3000A33D13 /* defused.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,10 +305,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1ACC3C1F1E531CDA0080D5D4 /* Main.storyboard */ = {
+		1A4DD96A1E60FD3F002781E8 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1ACC3C201E531CDA0080D5D4 /* Base */,
+				1A4DD96B1E60FD3F002781E8 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

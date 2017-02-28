@@ -18,7 +18,7 @@ class WeatherCell: UITableViewCell {
     
     
     func configureCell(forecast: Forecast) {
-        Temp.text = forecast.Temp
+        Temp.text = "\(forecast.Temp)°C"
         weatherType.text = forecast.weatherType
         weatherIcon.image = UIImage(named: forecast.weatherType)
         dayLable.text = forecast.date

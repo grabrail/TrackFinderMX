@@ -80,11 +80,7 @@ class Tracks {
         self._lon = lon
         
         self.trackURL = "\(jsonURL)"
-        print(self.lon)
-        print(self.lat)
-        
-        
-    }
+       }
 }
 
 

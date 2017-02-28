@@ -50,8 +50,7 @@ class TrackDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
 
     @IBAction func backBtnPressed(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
-        performSegue(withIdentifier: "LocateVC", sender: Any?.self)
+        dismiss(animated: false, completion: nil)
     }
     
     func downloadForecastData(completed: @escaping DownLoadComplete) {
@@ -84,10 +83,12 @@ class TrackDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         }
     }
     
-//    @IBAction func LocateBtnPressed() {
+    @IBAction func LocateBtnPressed() {
         
-//        performSegue(withIdentifier: "LocateVC", sender: <#Any?#>)
-//    }
+        performSegue(withIdentifier: "LocateVC", sender: track)
+    }
+    
+   
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -117,13 +118,9 @@ class TrackDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "LocateVC" {
             if let LocateVC = segue.destination as? LocateVC {
-                //if let tr = sender as? Tracks {
-                    print(track.lon)
-                    print(track.lat)
-                    
                     LocateVC.lon = track.lon
                     LocateVC.lat = track.lat
-                //}
+                    LocateVC.name = track.name
             }
         }
     }
