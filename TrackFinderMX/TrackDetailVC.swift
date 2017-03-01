@@ -51,9 +51,10 @@ class TrackDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
     }
 
-    @IBAction func backBtnPressed(_ sender: UIButton) {
+    @IBAction func bckBtnPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: false, completion: nil)
     }
+   
     
     func downloadForecastData(completed: @escaping DownLoadComplete) {
         let LID = track.locID
@@ -91,8 +92,6 @@ class TrackDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
         mapItem.name = "Target location"
         mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
-        
-        //performSegue(withIdentifier: "LocateVC", sender: track)
     }
     
    

@@ -8,27 +8,16 @@
 
 import UIKit
 
-class TrackCell: UICollectionViewCell {
+class TrackCell: UITableViewCell {
     
-    @IBOutlet weak var thumbImage: UIImageView!
-    //@IBOutlet weak var nameLbl: UILabel!
+    
+    @IBOutlet weak var nameLbl: UILabel!
     
     var track: Tracks!
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        
-        layer.cornerRadius = 10.0
-    }
-    
-    func configureCell(_ track: Tracks) {
-        self.track = track
-        
-        //nameLbl.text = self.track.name.capitalized
-        
-        thumbImage.image = UIImage(named: "\(self.track.trackId)")
-        
-    }
+    func configureCell(track: Tracks) {
+        nameLbl.text = track.name.capitalized
+     }
     
     
     

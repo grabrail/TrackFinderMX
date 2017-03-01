@@ -7,13 +7,14 @@
 //
 
 import UIKit
-import GoogleMaps
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate{
 
-    @IBOutlet weak var collection: UICollectionView!
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate{
+
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
 
+    var TR: Tracks!
     var track = [Tracks]()
     var filteredTrack = [Tracks]()
     var inSearchMode = false
@@ -21,10 +22,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collection.dataSource = self
-        collection.delegate = self
+        tableView.dataSource = self
+        tableView.delegate = self
         searchBar.delegate = self
-        
         searchBar.returnKeyType = UIReturnKeyType.done  
         
         parseTrackCSV()
@@ -47,107 +47,71 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 let lon = Double(row["long"]!)!
                 let lat = Double(row["lat"]!)!
                 let tr = Tracks(name: name, trackId: trackId, postcode: postcode, trackType: trackType, locId: locID, lon: lon, lat: lat)
-                
                 track.append(tr)
                 
                 }
             } catch let err as NSError {
             print(err.debugDescription)
-                
         }
-       
     }
-    
-    
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrackCell", for: indexPath) as? TrackCell {
-            
-            let tr: Tracks!
-            
-            if inSearchMode {
-                tr = filteredTrack[indexPath.row]
-                cell.configureCell(tr)
-                
-            } else {
-                tr = track[indexPath.row]
-                cell.configureCell(tr)
-            }
-            cell.configureCell(tr)
-                
-            return cell
-            
-        } else {
-            
-            return UICollectionViewCell()
-        
-        }
-        
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        var tr: Tracks!
-        
-        if inSearchMode {
-            
-            tr = filteredTrack[indexPath.row]
-            
-        } else {
-            
-            tr = track[indexPath.row]
-            
-        }
-        
-        performSegue(withIdentifier: "TrackDetailVC", sender: tr)
-        
-        
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        if inSearchMode {
-            
-            return filteredTrack.count
-        }
-        return track.count
-    }
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if inSearchMode {
+            return filteredTrack.count
+        } else {
+            return track.count
+        }
+       }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return CGSize(width: 105, height: 105)
-        
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "TrackCell", for: indexPath) as? TrackCell {
+            let tr: Tracks!
+            if inSearchMode {
+                tr = filteredTrack[indexPath.row]
+                cell.configureCell(track: tr)
+            } else {
+                tr = track[indexPath.row]
+                cell.configureCell(track: tr)
+            }
+            cell.configureCell(track: tr)
+            return cell
+        } else {
+            return UITableViewCell()
+        }
     }
-    
+
+
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         view.endEditing(true)
     }
-    
+
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
         if searchBar.text == nil || searchBar.text == "" {
             inSearchMode = false
-            collection.reloadData()
+            tableView.reloadData()
             view.endEditing(true)
-            
         } else {
-            
             inSearchMode = true
-            
-            let lower = searchBar.text!//.lowercased()
-            
+            let lower = searchBar.text!
             filteredTrack = track.filter({$0.name.range(of: lower) != nil})
-            collection.reloadData()
+            tableView.reloadData()
             
          }
       }
     
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var tr: Tracks!
+        if inSearchMode {
+            tr = filteredTrack[indexPath.row]
+        } else {
+            tr = track[indexPath.row]
+        }
+        performSegue(withIdentifier: "TrackDetailVC", sender: tr)
+    }
+
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "TrackDetailVC" {
             if let detailsVC = segue.destination as? TrackDetailVC {
