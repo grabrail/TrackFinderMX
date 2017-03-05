@@ -15,6 +15,8 @@ class TrackDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     var track: Tracks!
     
+    @IBOutlet weak var emailLbl: UILabel!
+    @IBOutlet weak var phoneNumberlbl: UILabel!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var postcodeLbl: UILabel!
     @IBOutlet weak var trackTyepLbl: UILabel!
@@ -34,6 +36,7 @@ class TrackDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         tableView.dataSource = self
 
         nameLbl.text = track.name
+        
 
     }
     
@@ -46,8 +49,11 @@ class TrackDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     func updateUI() {
         
-        postcodeLbl.text = track.postcode
-        trackTyepLbl.text = track.trackType
+        
+            phoneNumberlbl.text = track.phoneNumber
+            emailLbl.text = track.email
+//        postcodeLbl.text = track.postcode
+//        trackTyepLbl.text = track.trackType
         
     }
 

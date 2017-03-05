@@ -46,7 +46,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 let locID = row["locID"]!
                 let lon = Double(row["long"]!)!
                 let lat = Double(row["lat"]!)!
-                let tr = Tracks(name: name, trackId: trackId, postcode: postcode, trackType: trackType, locId: locID, lon: lon, lat: lat)
+                let phoneNumber = row["phone"]!
+                let email = row["email"]!
+                let tr = Tracks(name: name, trackId: trackId, postcode: postcode, trackType: trackType, locId: locID, lon: lon, lat: lat,phoneNumber: phoneNumber,email: email)
                 track.append(tr)
                 
                 }

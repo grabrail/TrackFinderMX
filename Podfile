@@ -6,4 +6,5 @@ target 'TrackFinderMX' do
     pod 'Alamofire', '~> 4.3'
     pod 'SwiftyStarRatingView', '~> 1.0'
     pod 'Cosmos', '~> 8.0'
+    pod 'Firebase/Core'
 end

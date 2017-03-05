@@ -20,6 +20,22 @@ class Tracks {
     private var _locId: String!
     private var _lat: Double!
     private var _lon: Double!
+    private var _phoneNumber: String!
+    private var _email: String!
+    
+    var phoneNumber: String {
+        if _phoneNumber == nil {
+            _phoneNumber = ""
+        }
+        return _phoneNumber
+    }
+    
+    var  email: String {
+        if _email == nil {
+            _email = ""
+        }
+        return _email
+    }
     
     var lat: Double {
         if _lat == nil {
@@ -69,7 +85,7 @@ class Tracks {
         return _trackId
     }
     
-    init(name: String, trackId: Int, postcode: String, trackType: String, locId: String, lon: Double, lat: Double) {
+    init(name: String, trackId: Int, postcode: String, trackType: String, locId: String, lon: Double, lat: Double, phoneNumber: String, email: String) {
         
         self._name = name
         self._trackId = trackId
@@ -78,6 +94,8 @@ class Tracks {
         self._locId = locId
         self._lat = lat
         self._lon = lon
+        self._email = email
+        self._phoneNumber = phoneNumber
         
         self.trackURL = "\(jsonURL)"
        }
