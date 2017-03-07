@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate{
 
+    
+    @IBOutlet weak var firstAd: GADBannerView!
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
 
@@ -21,6 +25,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        firstAd.adUnitID = "ca-app-pub-5208737100151061/9510951037"
+        firstAd.rootViewController = self
+        firstAd.load(GADRequest())
         
         tableView.dataSource = self
         tableView.delegate = self

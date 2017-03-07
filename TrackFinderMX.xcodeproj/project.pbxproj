@@ -17,13 +17,13 @@
 		1A5A3EF21E5C86C300764964 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5A3EF11E5C86C300764964 /* Forecast.swift */; };
 		1A5C46631E54975C005DA585 /* LocateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5C46621E54975C005DA585 /* LocateVC.swift */; };
 		1A91E0621E57281800B930CA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A91E0611E57281800B930CA /* Constants.swift */; };
+		1ABB94EA1E6EB2D700D7B843 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1ABB94E91E6EB2D700D7B843 /* GoogleService-Info.plist */; };
 		1ACC3C1C1E531CDA0080D5D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC3C1B1E531CDA0080D5D4 /* AppDelegate.swift */; };
 		1ACC3C1E1E531CDA0080D5D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC3C1D1E531CDA0080D5D4 /* ViewController.swift */; };
 		1ACC3C231E531CDB0080D5D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ACC3C221E531CDB0080D5D4 /* Assets.xcassets */; };
 		1ACC3C261E531CDB0080D5D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ACC3C241E531CDB0080D5D4 /* LaunchScreen.storyboard */; };
 		1ACC3C301E531F910080D5D4 /* tracks.csv in Resources */ = {isa = PBXBuildFile; fileRef = 1ACC3C2F1E531F910080D5D4 /* tracks.csv */; };
 		1ACC3C331E53231E0080D5D4 /* Tracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC3C321E53231E0080D5D4 /* Tracks.swift */; };
-		1AD88F661E6C78A70017834A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1AD88F651E6C78A60017834A /* GoogleService-Info.plist */; };
 		20DEE28AD239734DDD02E600 /* Pods_TrackFinderMX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BD617A36938D50F8E34F5A /* Pods_TrackFinderMX.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +38,7 @@
 		1A5A3EF11E5C86C300764964 /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		1A5C46621E54975C005DA585 /* LocateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocateVC.swift; sourceTree = "<group>"; };
 		1A91E0611E57281800B930CA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1ABB94E91E6EB2D700D7B843 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1ACC3C181E531CDA0080D5D4 /* TrackFinderMX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackFinderMX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ACC3C1B1E531CDA0080D5D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ACC3C1D1E531CDA0080D5D4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,7 +47,6 @@
 		1ACC3C271E531CDB0080D5D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1ACC3C2F1E531F910080D5D4 /* tracks.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tracks.csv; sourceTree = "<group>"; };
 		1ACC3C321E53231E0080D5D4 /* Tracks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tracks.swift; sourceTree = "<group>"; };
-		1AD88F651E6C78A60017834A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4B6B7D550961955BE4FB789A /* Pods-TrackFinderMX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackFinderMX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrackFinderMX/Pods-TrackFinderMX.debug.xcconfig"; sourceTree = "<group>"; };
 		5B295785C22229FBBED8A55D /* Pods-TrackFinderMX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackFinderMX.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrackFinderMX/Pods-TrackFinderMX.release.xcconfig"; sourceTree = "<group>"; };
 		B4BD617A36938D50F8E34F5A /* Pods_TrackFinderMX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrackFinderMX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,8 +141,8 @@
 				1ACC3C1B1E531CDA0080D5D4 /* AppDelegate.swift */,
 				1ACC3C221E531CDB0080D5D4 /* Assets.xcassets */,
 				1A4DD96A1E60FD3F002781E8 /* Main.storyboard */,
+				1ABB94E91E6EB2D700D7B843 /* GoogleService-Info.plist */,
 				1ACC3C241E531CDB0080D5D4 /* LaunchScreen.storyboard */,
-				1AD88F651E6C78A60017834A /* GoogleService-Info.plist */,
 				1ACC3C271E531CDB0080D5D4 /* Info.plist */,
 			);
 			path = TrackFinderMX;
@@ -234,7 +234,7 @@
 				1A4DD96C1E60FD3F002781E8 /* Main.storyboard in Resources */,
 				1ACC3C301E531F910080D5D4 /* tracks.csv in Resources */,
 				1A3C0F101E547A3000A33D13 /* defused.ttf in Resources */,
-				1AD88F661E6C78A70017834A /* GoogleService-Info.plist in Resources */,
+				1ABB94EA1E6EB2D700D7B843 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,10 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
+import FirebaseDatabase
+import GoogleMobileAds
+
 
 
 @UIApplicationMain
@@ -18,10 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FIRApp.configure()
+        GADMobileAds.configure(withApplicationID: "ca-app-pub-5208737100151061~8034217831")
+        
         //AGMSServices.provideAPIKey("AIzaSyAAoEfYiQqLBCHe4Sb6TW-9DeZ559nwt2I")
         // Override point for customization after application launch.
         return true
     }
+    
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

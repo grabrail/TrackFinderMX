@@ -10,10 +10,14 @@ import UIKit
 import Alamofire
 import MapKit
 import CoreLocation
+import FirebaseStorage
 
 class TrackDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate, CLLocationManagerDelegate{
     
     var track: Tracks!
+    
+    //let storage = FIRStorage.storage()
+    
     
     @IBOutlet weak var emailLbl: UILabel!
     @IBOutlet weak var phoneNumberlbl: UILabel!
@@ -21,6 +25,7 @@ class TrackDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBOutlet weak var postcodeLbl: UILabel!
     @IBOutlet weak var trackTyepLbl: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var trackImages: UIImageView!
     
     var forecast: Forecast!
     var forecasts = [Forecast]()
@@ -30,6 +35,9 @@ class TrackDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //let storageRef = storage.reference()
+        //let imagesRef = storageRef.child("images")
+        
             loadWeather()
         
         tableView.delegate = self
