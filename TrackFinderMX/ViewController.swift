@@ -8,6 +8,9 @@
 
 import UIKit
 import GoogleMobileAds
+import Alamofire
+import FirebaseDatabase
+
 
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate{
@@ -18,9 +21,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
 
-    var TR: Tracks!
-    var track = [Tracks]()
-    var filteredTrack = [Tracks]()
+    var TR: newTracks!
+    var track = [newTracks]()
+    var items: [newTracks] = []
+    var filteredTrack = [newTracks]()
     var inSearchMode = false
     
     override func viewDidLoad() {
@@ -35,35 +39,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         searchBar.delegate = self
         searchBar.returnKeyType = UIReturnKeyType.done  
         
-        parseTrackCSV()
+        getTrackData()
     }
     
-    func parseTrackCSV() {
+ 
+    
+    func getTrackData() {
         
-        let path = Bundle.main.path(forResource: "tracks", ofType: "csv")!
-        
-        do {
-            let csv = try CSV(contentsOfURL: path)
-            let rows = csv.rows
+        let result = FIRDatabase.database().reference(withPath: "tracks")
+        result.observe(.value, with: { snapshot in
+            var newItems: [newTracks] = []
+            print(newItems)
             
-            for row in  rows {
-                let trackId = Int(row["id"]!)!
-                let name = row["name"]!
-                let postcode = row["postcode"]!
-                let trackType = row["type"]!
-                let locID = row["locID"]!
-                let lon = Double(row["long"]!)!
-                let lat = Double(row["lat"]!)!
-                let phoneNumber = row["phone"]!
-                let email = row["email"]!
-                let tr = Tracks(name: name, trackId: trackId, postcode: postcode, trackType: trackType, locId: locID, lon: lon, lat: lat,phoneNumber: phoneNumber,email: email)
-                track.append(tr)
-                
-                }
-            } catch let err as NSError {
-            print(err.debugDescription)
-        }
+            for item in snapshot.children {
+                let trackDetails = newTracks(snapshot: item as! FIRDataSnapshot)
+                newItems.append(trackDetails)
+              }
+            
+            self.items = newItems
+            self.tableView.reloadData()
+            })
     }
+
+    
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -71,18 +70,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if inSearchMode {
             return filteredTrack.count
         } else {
-            return track.count
+            return items.count
         }
        }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "TrackCell", for: indexPath) as? TrackCell {
-            let tr: Tracks!
+            let tr: newTracks!
             if inSearchMode {
                 tr = filteredTrack[indexPath.row]
                 cell.configureCell(track: tr)
             } else {
-                tr = track[indexPath.row]
+                tr = items[indexPath.row]
                 cell.configureCell(track: tr)
             }
             cell.configureCell(track: tr)
@@ -105,7 +104,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         } else {
             inSearchMode = true
             let lower = searchBar.text!
-            filteredTrack = track.filter({$0.name.range(of: lower) != nil})
+            filteredTrack =  items.filter({$0.name.range(of: lower) != nil})
             tableView.reloadData()
             
          }
@@ -113,11 +112,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var tr: Tracks!
+        var tr: newTracks!
         if inSearchMode {
             tr = filteredTrack[indexPath.row]
         } else {
-            tr = track[indexPath.row]
+            tr = items[indexPath.row]
         }
         performSegue(withIdentifier: "TrackDetailVC", sender: tr)
     }
@@ -125,7 +124,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "TrackDetailVC" {
             if let detailsVC = segue.destination as? TrackDetailVC {
-                if let tr = sender as? Tracks {
+                if let tr = sender as? newTracks {
                     detailsVC.track = tr
                 }
             }

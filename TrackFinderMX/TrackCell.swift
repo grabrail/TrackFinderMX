@@ -13,9 +13,9 @@ class TrackCell: UITableViewCell {
     
     @IBOutlet weak var nameLbl: UILabel!
     
-    var track: Tracks!
+    var track: newTracks!
     
-    func configureCell(track: Tracks) {
+    func configureCell(track: newTracks) {
         nameLbl.text = track.name.capitalized
      }
     

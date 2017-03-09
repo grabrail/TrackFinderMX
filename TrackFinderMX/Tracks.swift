@@ -6,22 +6,23 @@
 //  Copyright © 2017 ShutterMX. All rights reserved.
 //
 
+import UIKit
 import Foundation
 import Alamofire
 
 
 class Tracks {
     
-    private var _name: String!
-    private var _trackId: Int!
-    private var _postcode: String!
-    private var _trackType: String!
-    private var trackURL: String!
-    private var _locId: String!
-    private var _lat: Double!
-    private var _lon: Double!
-    private var _phoneNumber: String!
-    private var _email: String!
+    var _name: String!
+    var _trackId: Int!
+    var _postcode: String!
+    var _trackType: String!
+    var trackURL: String!
+    var _locId: String!
+    var _lat: Double!
+    var _lon: Double!
+    var _phoneNumber: String!
+    var _email: String!
     
     var phoneNumber: String {
         if _phoneNumber == nil {

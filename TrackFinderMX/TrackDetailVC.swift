@@ -14,7 +14,7 @@ import FirebaseStorage
 
 class TrackDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate, CLLocationManagerDelegate{
     
-    var track: Tracks!
+    var track: newTracks!
     
     //let storage = FIRStorage.storage()
     
@@ -30,7 +30,7 @@ class TrackDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     var forecast: Forecast!
     var forecasts = [Forecast]()
     
-    var vtrack = [Tracks]()
+    var vtrack = [newTracks]()
     
     
     override func viewDidLoad() {
@@ -60,8 +60,7 @@ class TrackDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
             phoneNumberlbl.text = track.phoneNumber
             emailLbl.text = track.email
-//        postcodeLbl.text = track.postcode
-//        trackTyepLbl.text = track.trackType
+
         
     }
 
@@ -72,7 +71,8 @@ class TrackDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     func downloadForecastData(completed: @escaping DownLoadComplete) {
         let LID = track.locID
-        let forecastURL = URL(string: "http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/\(LID)?res=3hourly&key=682ef7b6-add5-4199-875b-085ffd630466")!
+        
+        let forecastURL = URL(string: "http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json//\(LID!)?res=daily&key=682ef7b6-add5-4199-875b-085ffd630466")!
         
         Alamofire.request(forecastURL).responseJSON { response in
             let result = response.result

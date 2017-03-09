@@ -22,8 +22,8 @@
 		1ACC3C1E1E531CDA0080D5D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC3C1D1E531CDA0080D5D4 /* ViewController.swift */; };
 		1ACC3C231E531CDB0080D5D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ACC3C221E531CDB0080D5D4 /* Assets.xcassets */; };
 		1ACC3C261E531CDB0080D5D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ACC3C241E531CDB0080D5D4 /* LaunchScreen.storyboard */; };
-		1ACC3C301E531F910080D5D4 /* tracks.csv in Resources */ = {isa = PBXBuildFile; fileRef = 1ACC3C2F1E531F910080D5D4 /* tracks.csv */; };
 		1ACC3C331E53231E0080D5D4 /* Tracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC3C321E53231E0080D5D4 /* Tracks.swift */; };
+		1AF440221E70384100AB76C7 /* newTracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF440211E70384100AB76C7 /* newTracks.swift */; };
 		20DEE28AD239734DDD02E600 /* Pods_TrackFinderMX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BD617A36938D50F8E34F5A /* Pods_TrackFinderMX.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,8 +45,8 @@
 		1ACC3C221E531CDB0080D5D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1ACC3C251E531CDB0080D5D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1ACC3C271E531CDB0080D5D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1ACC3C2F1E531F910080D5D4 /* tracks.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tracks.csv; sourceTree = "<group>"; };
 		1ACC3C321E53231E0080D5D4 /* Tracks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tracks.swift; sourceTree = "<group>"; };
+		1AF440211E70384100AB76C7 /* newTracks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newTracks.swift; sourceTree = "<group>"; };
 		4B6B7D550961955BE4FB789A /* Pods-TrackFinderMX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackFinderMX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrackFinderMX/Pods-TrackFinderMX.debug.xcconfig"; sourceTree = "<group>"; };
 		5B295785C22229FBBED8A55D /* Pods-TrackFinderMX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackFinderMX.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrackFinderMX/Pods-TrackFinderMX.release.xcconfig"; sourceTree = "<group>"; };
 		B4BD617A36938D50F8E34F5A /* Pods_TrackFinderMX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrackFinderMX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,7 +96,6 @@
 		1A3C0F0D1E536D6500A33D13 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1ACC3C2F1E531F910080D5D4 /* tracks.csv */,
 				1A3C0F0A1E536D4200A33D13 /* CocoBiker.ttf */,
 				1A3C0F0F1E547A3000A33D13 /* defused.ttf */,
 				1A91E0611E57281800B930CA /* Constants.swift */,
@@ -152,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				1ACC3C321E53231E0080D5D4 /* Tracks.swift */,
+				1AF440211E70384100AB76C7 /* newTracks.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -232,7 +232,6 @@
 				1ACC3C261E531CDB0080D5D4 /* LaunchScreen.storyboard in Resources */,
 				1ACC3C231E531CDB0080D5D4 /* Assets.xcassets in Resources */,
 				1A4DD96C1E60FD3F002781E8 /* Main.storyboard in Resources */,
-				1ACC3C301E531F910080D5D4 /* tracks.csv in Resources */,
 				1A3C0F101E547A3000A33D13 /* defused.ttf in Resources */,
 				1ABB94EA1E6EB2D700D7B843 /* GoogleService-Info.plist in Resources */,
 			);
@@ -301,6 +300,7 @@
 				1A3C0F071E533DE900A33D13 /* TrackCell.swift in Sources */,
 				1A5C46631E54975C005DA585 /* LocateVC.swift in Sources */,
 				1A3C0F091E53459500A33D13 /* csv.swift in Sources */,
+				1AF440221E70384100AB76C7 /* newTracks.swift in Sources */,
 				1A3C0F141E54807C00A33D13 /* TrackDetailVC.swift in Sources */,
 				1A91E0621E57281800B930CA /* Constants.swift in Sources */,
 			);
