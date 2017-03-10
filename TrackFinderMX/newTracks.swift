@@ -16,33 +16,38 @@ struct newTracks {
     let trackId: Int!
     let postcode: String!
     let trackType: String!
-    //let trackURL: String!
     let locID: Int!
     let lat: Double!
     let lon: Double!
     let phoneNumber: String!
     let email: String!
+    let rating: Double!
+    let numrating: Double!
+    let totalrating: Double!
     let ref: FIRDatabaseReference?
+    
 
     
-    init(name: String, trackId: Int, postcode: String, trackType: String, trackURL: String, locID: Int, lat: Double, lon: Double, phoneNumber: String, email: String) {
+    init(name: String, trackId: Int, postcode: String, trackType: String, trackURL: String, locID: Int, lat: Double, lon: Double, phoneNumber: String, email: String, rating: Double, numrating: Double, totalrating: Double) {
         self.name = name
         self.trackId = trackId
         self.ref = nil
         self.postcode = postcode
         self.trackType = trackType
-        //self.trackURL = trackURL
         self.locID = locID
         self.lat = lat
         self.lon = lon
         self.phoneNumber = phoneNumber
         self.email = email
+        self.rating = rating
+        self.numrating = numrating
+        self.totalrating = totalrating
         
     }
     
     init(snapshot: FIRDataSnapshot) {
-        //key = snapshot.key
         let snapshotValue = snapshot.value as! [String: AnyObject]
+        print(snapshotValue)
         name = snapshotValue["name"] as! String
         trackId = snapshotValue["id"]as! Int
         postcode = snapshotValue["postcode"]as! String
@@ -52,7 +57,11 @@ struct newTracks {
         lon = snapshotValue["long"]as! Double
         phoneNumber = snapshotValue["phone"]as! String
         email = snapshotValue["email"]as! String
+        rating = snapshotValue["rating"]as! Double
         ref = snapshot.ref
+        numrating = snapshotValue["numrating"] as! Double
+        totalrating = snapshotValue["totalrating"] as! Double
+        
     }
     
     func toAnyObject() -> Any {
@@ -65,10 +74,11 @@ struct newTracks {
             "lat": lat,
             "lon": lon,
             "phoneNumber": phoneNumber,
-            "email": email
-        
-            
-        ]
+            "email": email,
+            "rating": rating,
+            "numrating": numrating,
+            "totalrating": totalrating
+                ]
     }
     
 }

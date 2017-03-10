@@ -22,7 +22,7 @@
 		1ACC3C1E1E531CDA0080D5D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC3C1D1E531CDA0080D5D4 /* ViewController.swift */; };
 		1ACC3C231E531CDB0080D5D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ACC3C221E531CDB0080D5D4 /* Assets.xcassets */; };
 		1ACC3C261E531CDB0080D5D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ACC3C241E531CDB0080D5D4 /* LaunchScreen.storyboard */; };
-		1ACC3C331E53231E0080D5D4 /* Tracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC3C321E53231E0080D5D4 /* Tracks.swift */; };
+		1ACC3C331E53231E0080D5D4 /* Tracks1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC3C321E53231E0080D5D4 /* Tracks1.swift */; };
 		1AF440221E70384100AB76C7 /* newTracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF440211E70384100AB76C7 /* newTracks.swift */; };
 		20DEE28AD239734DDD02E600 /* Pods_TrackFinderMX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BD617A36938D50F8E34F5A /* Pods_TrackFinderMX.framework */; };
 /* End PBXBuildFile section */
@@ -45,7 +45,7 @@
 		1ACC3C221E531CDB0080D5D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1ACC3C251E531CDB0080D5D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1ACC3C271E531CDB0080D5D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1ACC3C321E53231E0080D5D4 /* Tracks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tracks.swift; sourceTree = "<group>"; };
+		1ACC3C321E53231E0080D5D4 /* Tracks1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tracks1.swift; sourceTree = "<group>"; };
 		1AF440211E70384100AB76C7 /* newTracks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newTracks.swift; sourceTree = "<group>"; };
 		4B6B7D550961955BE4FB789A /* Pods-TrackFinderMX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackFinderMX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrackFinderMX/Pods-TrackFinderMX.debug.xcconfig"; sourceTree = "<group>"; };
 		5B295785C22229FBBED8A55D /* Pods-TrackFinderMX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackFinderMX.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrackFinderMX/Pods-TrackFinderMX.release.xcconfig"; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 		1ACC3C311E5323050080D5D4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1ACC3C321E53231E0080D5D4 /* Tracks.swift */,
+				1ACC3C321E53231E0080D5D4 /* Tracks1.swift */,
 				1AF440211E70384100AB76C7 /* newTracks.swift */,
 			);
 			name = Model;
@@ -293,7 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A5A3EF01E5C867900764964 /* weatherCell.swift in Sources */,
-				1ACC3C331E53231E0080D5D4 /* Tracks.swift in Sources */,
+				1ACC3C331E53231E0080D5D4 /* Tracks1.swift in Sources */,
 				1ACC3C1E1E531CDA0080D5D4 /* ViewController.swift in Sources */,
 				1ACC3C1C1E531CDA0080D5D4 /* AppDelegate.swift in Sources */,
 				1A5A3EF21E5C86C300764964 /* Forecast.swift in Sources */,

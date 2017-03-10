@@ -42,8 +42,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         getTrackData()
     }
     
- 
-    
     func getTrackData() {
         
         let result = FIRDatabase.database().reference(withPath: "tracks")
@@ -55,6 +53,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 let trackDetails = newTracks(snapshot: item as! FIRDataSnapshot)
                 newItems.append(trackDetails)
               }
+            print(newItems)
             
             self.items = newItems
             self.tableView.reloadData()

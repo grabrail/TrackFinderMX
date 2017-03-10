@@ -11,14 +11,19 @@ import Alamofire
 import MapKit
 import CoreLocation
 import FirebaseStorage
+import FirebaseDatabase
+import Cosmos
 
 class TrackDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate, CLLocationManagerDelegate{
+    
+    
     
     var track: newTracks!
     
     //let storage = FIRStorage.storage()
     
-    
+    @IBOutlet weak var popUpView: UIView!
+    @IBOutlet weak var cosmosRating: CosmosView!
     @IBOutlet weak var emailLbl: UILabel!
     @IBOutlet weak var phoneNumberlbl: UILabel!
     @IBOutlet weak var nameLbl: UILabel!
@@ -32,21 +37,58 @@ class TrackDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     var vtrack = [newTracks]()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //let storageRef = storage.reference()
-        //let imagesRef = storageRef.child("images")
         
-            loadWeather()
+                cosmosSetup()
+        loadWeather()
         
         tableView.delegate = self
         tableView.dataSource = self
 
         nameLbl.text = track.name
+        }
+    
+    func cosmosSetup() {
         
-
+        cosmosRating.rating = track.rating
+        //cosmosRating.text = "Track Rating"
+        //cosmosRating.didTouchCosmos = didTouchCosmos
+        cosmosRating.didFinishTouchingCosmos = didFinishTouchingCosmos
     }
+    
+    func didFinishTouchingCosmos(_ rating: Double) {
+        var rates: Double
+        var numrate: Double
+        var totalratings: Double
+        var ref: FIRDatabaseReference!
+        
+        totalratings = track.totalrating + cosmosRating.rating
+        numrate = track.numrating + 1
+        cosmosRating.rating = totalratings / numrate
+        
+        ref = FIRDatabase.database().reference(withPath: "tracks").child(track.name)
+        rates = cosmosRating.rating
+        
+        let post = ["rating": rates, "numrating": numrate, "totalrating": totalratings]
+        let childUpdates =  post
+        
+        ref.updateChildValues(childUpdates)
+        
+       }
+    
+    func showPopUpView() {
+        popUpView.isHidden = false
+        
+        
+    }
+    
+   
+    @IBAction func exitPopUpViewButton(_ sender: Any) {
+        popUpView.isHidden = true
+    }
+    
+    
     
     func loadWeather() {
             self.downloadForecastData {
@@ -54,12 +96,9 @@ class TrackDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                 }
             }
         
-    
     func updateUI() {
-        
-        
-            phoneNumberlbl.text = track.phoneNumber
-            emailLbl.text = track.email
+      phoneNumberlbl.text = track.phoneNumber
+      emailLbl.text = track.email
 
         
     }
