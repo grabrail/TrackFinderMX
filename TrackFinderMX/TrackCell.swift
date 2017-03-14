@@ -7,16 +7,19 @@
 //
 
 import UIKit
+import Cosmos
 
 class TrackCell: UITableViewCell {
     
     
+    @IBOutlet weak var ratingView: CosmosView!
     @IBOutlet weak var nameLbl: UILabel!
     
     var track: newTracks!
     
     func configureCell(track: newTracks) {
         nameLbl.text = track.name.capitalized
+        ratingView.rating = track.rating
      }
     
     
