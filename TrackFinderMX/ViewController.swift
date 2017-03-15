@@ -10,6 +10,9 @@ import UIKit
 import GoogleMobileAds
 import Alamofire
 import FirebaseDatabase
+import CoreLocation
+import MapKit
+import Cosmos
 
 
 
@@ -20,6 +23,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    
+    //@IBOutlet weak var locateBtn: UIButton!
 
     var TR: newTracks!
     var track = [newTracks]()
@@ -47,13 +52,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let result = FIRDatabase.database().reference(withPath: "tracks")
         result.observe(.value, with: { snapshot in
             var newItems: [newTracks] = []
-            print(newItems)
+           
             
             for item in snapshot.children {
                 let trackDetails = newTracks(snapshot: item as! FIRDataSnapshot)
                 newItems.append(trackDetails)
               }
-            print(newItems)
+            
             
             self.items = newItems
             self.tableView.reloadData()
@@ -84,13 +89,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 cell.configureCell(track: tr)
             }
             cell.configureCell(track: tr)
+           
+            
+            
             return cell
+            
+           
         } else {
             return UITableViewCell()
         }
     }
 
 
+  
+//    func locateBtnPressed (_ sender: Any) {
+//        
+//        let coordinate = CLLocationCoordinate2DMake(TR.lat,TR.lon)
+//        let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
+//        mapItem.name = TR.name
+//        mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey :MKLaunchOptionsDirectionsModeDriving])
+//        
+//        }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         view.endEditing(true)
     }
@@ -117,17 +137,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         } else {
             tr = items[indexPath.row]
         }
-        performSegue(withIdentifier: "TrackDetailVC", sender: tr)
-    }
-
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "TrackDetailVC" {
-            if let detailsVC = segue.destination as? TrackDetailVC {
-                if let tr = sender as? newTracks {
-                    detailsVC.track = tr
-                }
-            }
+        let coordinate = CLLocationCoordinate2DMake(tr.lat,tr.lon)
+        let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
+        mapItem.name = tr.name
+        mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey :MKLaunchOptionsDirectionsModeDriving])
         }
-    }
+
+
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "TrackDetailVC" {
+//            if let detailsVC = segue.destination as? mapLocationVC {
+//                if let tr = sender as? newTracks {
+//                    detailsVC.track = tr
+//                }
+//            }
+//        }
+//    }
+
+    
 }
+
 

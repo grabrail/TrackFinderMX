@@ -47,7 +47,6 @@ struct newTracks {
     
     init(snapshot: FIRDataSnapshot) {
         let snapshotValue = snapshot.value as! [String: AnyObject]
-        print(snapshotValue)
         name = snapshotValue["name"] as! String
         trackId = snapshotValue["id"]as! Int
         postcode = snapshotValue["postcode"]as! String
