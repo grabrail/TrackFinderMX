@@ -16,7 +16,7 @@ import Cosmos
 
 
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate{
+class ViewController:  UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate{
 
     
     @IBOutlet weak var firstAd: GADBannerView!
@@ -89,10 +89,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 cell.configureCell(track: tr)
             }
             cell.configureCell(track: tr)
-           
             
+            cell.buttonClick.tag = 1
+            cell.buttonClick.addTarget(self, action:#selector(self.pressed), for: .touchUpInside)
             
-            return cell
+           return cell
             
            
         } else {
@@ -100,16 +101,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
 
-
-  
-//    func locateBtnPressed (_ sender: Any) {
-//        
-//        let coordinate = CLLocationCoordinate2DMake(TR.lat,TR.lon)
-//        let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
-//        mapItem.name = TR.name
-//        mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey :MKLaunchOptionsDirectionsModeDriving])
-//        
-//        }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         view.endEditing(true)
@@ -137,11 +128,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         } else {
             tr = items[indexPath.row]
         }
+//        let coordinate = CLLocationCoordinate2DMake(tr.lat,tr.lon)
+//        let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
+//        mapItem.name = tr.name
+//        mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey :MKLaunchOptionsDirectionsModeDriving])
+        }
+    
+    func pressed(sender: UIButton!) {
+        
+        if (sender.tag == 1){
+        var tr: newTracks!
+        if inSearchMode {
+        tr = filteredTrack[indexPath.row]
+        } else {
+        tr = items[indexPath.row]
+        }
         let coordinate = CLLocationCoordinate2DMake(tr.lat,tr.lon)
         let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
         mapItem.name = tr.name
         mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey :MKLaunchOptionsDirectionsModeDriving])
-        }
+        }}
 
 
     
