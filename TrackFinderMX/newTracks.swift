@@ -8,76 +8,65 @@
 
 import Foundation
 import FirebaseDatabase
+import CoreLocation
 
 struct newTracks {
     
-    
+    //Declerations
+    var locationManager = CLLocationManager()
     let name: String!
-    let trackId: Int!
-    let postcode: String!
-    let trackType: String!
-    let locID: Int!
     let lat: Double!
     let lon: Double!
-    let phoneNumber: String!
-    let email: String!
-    let rating: Double!
-    let numrating: Double!
-    let totalrating: Double!
+    let countryImage: String!
+    let link: String!
     let ref: FIRDatabaseReference?
+    let distance: Double
     
-
-    
-    init(name: String, trackId: Int, postcode: String, trackType: String, trackURL: String, locID: Int, lat: Double, lon: Double, phoneNumber: String, email: String, rating: Double, numrating: Double, totalrating: Double) {
+   
+    //Initialize
+    init(name: String, trackId: Int, postcode: String, trackType: String, trackURL: String, locID: Int, lat: Double, lon: Double, phoneNumber: String, email: String, rating: Double, numrating: Double, totalrating: Double, countryImage: String, link: String, distance: Double) {
         self.name = name
-        self.trackId = trackId
         self.ref = nil
-        self.postcode = postcode
-        self.trackType = trackType
-        self.locID = locID
         self.lat = lat
         self.lon = lon
-        self.phoneNumber = phoneNumber
-        self.email = email
-        self.rating = rating
-        self.numrating = numrating
-        self.totalrating = totalrating
-        
-    }
+        self.countryImage = countryImage
+        self.link = link
+        self.distance = distance
+     }
     
+    //Initialize data from Firebase
     init(snapshot: FIRDataSnapshot) {
+        
+        
+        
+        
         let snapshotValue = snapshot.value as! [String: AnyObject]
         name = snapshotValue["name"] as! String
-        trackId = snapshotValue["id"]as! Int
-        postcode = snapshotValue["postcode"]as! String
-        trackType = snapshotValue["type"]as! String
-        locID = snapshotValue["locID"]as! Int
         lat = snapshotValue["lat"]as! Double
         lon = snapshotValue["long"]as! Double
-        phoneNumber = snapshotValue["phone"]as! String
-        email = snapshotValue["email"]as! String
-        rating = snapshotValue["rating"]as! Double
         ref = snapshot.ref
-        numrating = snapshotValue["numrating"] as! Double
-        totalrating = snapshotValue["totalrating"] as! Double
+        countryImage = snapshotValue["country"] as! String
+        link = snapshotValue["link"] as! String
         
+        let currentLat = self.locationManager.location!.coordinate.latitude
+        let currentLon = self.locationManager.location!.coordinate.longitude
+        let myLocation = CLLocation(latitude: currentLat, longitude: currentLon)
+        let loc = CLLocation(latitude: lat, longitude: lon)
+        let distanceInMiles = round(myLocation.distance(from: loc) / 1609.34)
+        
+        distance = distanceInMiles
     }
     
     func toAnyObject() -> Any {
         return [
             "name": name,
-            "trackId": trackId,
-            "postcode": postcode,
-            "trackType": trackType,
-            "locID": locID,
             "lat": lat,
             "lon": lon,
-            "phoneNumber": phoneNumber,
-            "email": email,
-            "rating": rating,
-            "numrating": numrating,
-            "totalrating": totalrating
-                ]
-    }
+            "countryImage": countryImage,
+            "link": link,
+            "distance": distance
+        ]
+        
+     }
     
 }

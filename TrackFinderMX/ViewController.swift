@@ -8,24 +8,20 @@
 
 import UIKit
 import GoogleMobileAds
-import Alamofire
 import FirebaseDatabase
 import CoreLocation
 import MapKit
-import Cosmos
 
+class ViewController:  UIViewController{
+    //, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate
 
-
-class ViewController:  UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate{
-
-    
+    @IBOutlet var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var mapContainer: UIView!
+    @IBOutlet weak var tableContainer: UIView!
     @IBOutlet weak var firstAd: GADBannerView!
+    //@IBOutlet weak var tableView: UITableView!
+    //@IBOutlet weak var searchBar: UISearchBar!
     
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
-    
-    //@IBOutlet weak var locateBtn: UIButton!
-
     var TR: newTracks!
     var track = [newTracks]()
     var items: [newTracks] = []
@@ -39,128 +35,112 @@ class ViewController:  UIViewController, UITableViewDelegate, UITableViewDataSou
         firstAd.rootViewController = self
         firstAd.load(GADRequest())
         
-        tableView.dataSource = self
-        tableView.delegate = self
-        searchBar.delegate = self
-        searchBar.returnKeyType = UIReturnKeyType.done  
+//        tableView.dataSource = self
+//        tableView.delegate = self
+//        searchBar.delegate = self
+//        searchBar.returnKeyType = UIReturnKeyType.done  
         
-        getTrackData()
+        //getTrackData()
+        
+        
     }
     
-    func getTrackData() {
-        
-        let result = FIRDatabase.database().reference(withPath: "tracks")
-        result.observe(.value, with: { snapshot in
-            var newItems: [newTracks] = []
-           
-            
-            for item in snapshot.children {
-                let trackDetails = newTracks(snapshot: item as! FIRDataSnapshot)
-                newItems.append(trackDetails)
-              }
-            
-            
-            self.items = newItems
-            self.tableView.reloadData()
+    
+    @IBAction func showContainer(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.tableContainer.alpha = 1
+                self.mapContainer.alpha = 0
             })
-    }
-
-    
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if inSearchMode {
-            return filteredTrack.count
-        } else {
-            return items.count
-        }
-       }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "TrackCell", for: indexPath) as? TrackCell {
-            let tr: newTracks!
-            if inSearchMode {
-                tr = filteredTrack[indexPath.row]
-                cell.configureCell(track: tr)
-            } else {
-                tr = items[indexPath.row]
-                cell.configureCell(track: tr)
-            }
-            cell.configureCell(track: tr)
             
-            cell.buttonClick.tag = 1
-            cell.buttonClick.addTarget(self, action:#selector(self.pressed), for: .touchUpInside)
-            
-           return cell
-            
-           
-        } else {
-            return UITableViewCell()
+        }else {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.tableContainer.alpha = 0
+                self.mapContainer.alpha = 1
+            })
         }
-    }
-
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        view.endEditing(true)
-    }
-
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchBar.text == nil || searchBar.text == "" {
-            inSearchMode = false
-            tableView.reloadData()
-            view.endEditing(true)
-        } else {
-            inSearchMode = true
-            let lower = searchBar.text!
-            filteredTrack =  items.filter({$0.name.range(of: lower) != nil})
-            tableView.reloadData()
-            
-         }
-      }
-    
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var tr: newTracks!
-        if inSearchMode {
-            tr = filteredTrack[indexPath.row]
-        } else {
-            tr = items[indexPath.row]
-        }
-//        let coordinate = CLLocationCoordinate2DMake(tr.lat,tr.lon)
-//        let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
-//        mapItem.name = tr.name
-//        mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey :MKLaunchOptionsDirectionsModeDriving])
-        }
-    
-    func pressed(sender: UIButton!) {
         
-        if (sender.tag == 1){
-        var tr: newTracks!
-        if inSearchMode {
-        tr = filteredTrack[indexPath.row]
-        } else {
-        tr = items[indexPath.row]
-        }
-        let coordinate = CLLocationCoordinate2DMake(tr.lat,tr.lon)
-        let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
-        mapItem.name = tr.name
-        mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey :MKLaunchOptionsDirectionsModeDriving])
-        }}
+    }
 
-
+        
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "TrackDetailVC" {
-//            if let detailsVC = segue.destination as? mapLocationVC {
-//                if let tr = sender as? newTracks {
-//                    detailsVC.track = tr
-//                }
-//            }
-//        }
+    
+//    func getTrackData() {
+//        
+//        let result = FIRDatabase.database().reference(withPath: "tracks")
+//        result.observe(.value, with: { snapshot in
+//            var newItems: [newTracks] = []
+//            for item in snapshot.children {
+//                let trackDetails = newTracks(snapshot: item as! FIRDataSnapshot)
+//                newItems.append(trackDetails)
+//              }
+//            self.items = newItems
+//            self.items.sort(by: {$0.distance < $1.distance})
+//            self.tableView.reloadData()
+//            })
 //    }
-
+//
+//    
+//    
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        return 1
+//    }
+//    
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        if inSearchMode {
+//            return filteredTrack.count
+//        } else {
+//            return items.count
+//        }
+//       }
+//    
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        if let cell = tableView.dequeueReusableCell(withIdentifier: "TrackCell", for: indexPath) as? TrackCell {
+//        
+//            let tr: newTracks!
+//            if inSearchMode {
+//                tr = filteredTrack[indexPath.row]
+//                cell.configureCell(track: tr)
+//            } else {
+//                tr = items[indexPath.row]
+//                cell.configureCell(track: tr)
+//            }
+//            cell.configureCell(track: tr)
+//            
+//            cell.completion = {
+//              let coordinate = CLLocationCoordinate2DMake(tr.lat,tr.lon)
+//              let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate,addressDictionary:nil))
+//              mapItem.name = tr.name
+//              mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey :MKLaunchOptionsDirectionsModeDriving])
+//              return()
+//            }
+//            
+//            return cell 
+//            } else {
+//            return UITableViewCell()
+//        }
+//        
+//        
+//        
+//    }
+//
+//   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//        view.endEditing(true)
+//    }
+//
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        if searchBar.text == nil || searchBar.text == "" {
+//            inSearchMode = false
+//            tableView.reloadData()
+//            view.endEditing(true)
+//        } else {
+//            inSearchMode = true
+//            let lower = searchBar.text!
+//            filteredTrack =  items.filter({$0.name.range(of: lower) != nil})
+//            tableView.reloadData()
+//            
+//         }
+//      }
     
 }
 
