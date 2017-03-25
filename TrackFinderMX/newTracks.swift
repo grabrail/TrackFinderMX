@@ -37,9 +37,6 @@ struct newTracks {
     //Initialize data from Firebase
     init(snapshot: FIRDataSnapshot) {
         
-        
-        
-        
         let snapshotValue = snapshot.value as! [String: AnyObject]
         name = snapshotValue["name"] as! String
         lat = snapshotValue["lat"]as! Double
