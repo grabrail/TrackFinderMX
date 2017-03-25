@@ -42,6 +42,8 @@ class TrackCell: UITableViewCell, CLLocationManagerDelegate {
         milesLabel.text = "\(track.distance)mi"
         
     }
+    
+    
 }
 
 

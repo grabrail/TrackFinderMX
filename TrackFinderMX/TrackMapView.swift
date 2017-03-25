@@ -16,43 +16,19 @@ import CoreLocation
 class TrackMapView: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
-    //var tr: newTracks!
-    //var items = [newTracks]()
-    //var locationManager = CLLocationManager()
+    var tr: newTracks!
+    var items = [newTracks]()
+    var locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.mapView.delegate = self
         
-        //getMapTrackData()
-        
+     
         
     }
-    
-//    func getMapTrackData() {
-//        
-//        let result = FIRDatabase.database().reference(withPath: "tracks")
-//        result.observe(.value, with: { snapshot in
-//            var newItems: [newTracks] = []
-//            for item in snapshot.children {
-//                let trackDetails = newTracks(snapshot: item as! FIRDataSnapshot)
-//                newItems.append(trackDetails)
-//            }
-//            self.items = newItems
-//            //self.items.sort(by: {$0.distance < $1.distance})
-//            //self.tableView.reloadData()
-//            
-//            
-//            let coordinate = CLLocationCoordinate2DMake(self.tr.lat,self.tr.lon)
-//            let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate,addressDictionary:nil))
-//            mapItem.name = self.tr.name
-//            
-//            
-//        })
-    }
-    
-
+}
 
     
     
