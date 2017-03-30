@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import MessageUI
 import FirebaseDatabase
 
 class messageViewController: UIViewController {

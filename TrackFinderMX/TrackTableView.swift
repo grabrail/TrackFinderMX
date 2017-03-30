@@ -11,13 +11,15 @@ import FirebaseDatabase
 import CoreLocation
 import MapKit
 
-class TrackTableView: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class TrackTableView: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, CLLocationManagerDelegate {
     
    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var TR: newTracks!
+    var locationManager = CLLocationManager()
+    
+    //var TR: newTracks!
     var track = [newTracks]()
     var items: [newTracks] = []
     var filteredTrack = [newTracks]()
@@ -25,6 +27,11 @@ class TrackTableView: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -36,7 +43,6 @@ class TrackTableView: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     func getTrackData() {
-        
         let result = FIRDatabase.database().reference(withPath: "tracks")
         result.observe(.value, with: { snapshot in
             var newItems: [newTracks] = []
@@ -44,10 +50,12 @@ class TrackTableView: UIViewController, UITableViewDelegate, UITableViewDataSour
                 let trackDetails = newTracks(snapshot: item as! FIRDataSnapshot)
                 newItems.append(trackDetails)
             }
+            
             self.items = newItems
             self.items.sort(by: {$0.distance < $1.distance})
             self.tableView.reloadData()
-        })
+            })
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -73,6 +81,7 @@ class TrackTableView: UIViewController, UITableViewDelegate, UITableViewDataSour
                 tr = items[indexPath.row]
                 cell.configureCell(track: tr)
             }
+            
             cell.configureCell(track: tr)
             
             cell.completion = {
@@ -92,16 +101,10 @@ class TrackTableView: UIViewController, UITableViewDelegate, UITableViewDataSour
                 }
                 return()
             }
-            
-            
-            
-            
-            
             return cell
         } else {
             return UITableViewCell()
         }
-        
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

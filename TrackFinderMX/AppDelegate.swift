@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import FirebaseStorage
 import FirebaseDatabase
 import GoogleMobileAds
 
@@ -23,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FIRApp.configure()
         GADMobileAds.configure(withApplicationID: "ca-app-pub-5208737100151061~8034217831")
-        //let storage = FIRStorage.storage()
         //FIRDatabase.database().persistenceEnabled = true
         return true
     }

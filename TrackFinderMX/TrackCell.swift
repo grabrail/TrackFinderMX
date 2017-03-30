@@ -40,6 +40,7 @@ class TrackCell: UITableViewCell, CLLocationManagerDelegate {
     }
     
     func configureCell(track: newTracks) {
+        
         nameLbl.text = track.name.capitalized
         countryImage.image = UIImage(named: track.countryImage)
         milesLabel.text = "\(track.distance)mi"
