@@ -16,54 +16,68 @@ import CoreLocation
 class TrackMapView: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
+    let regionRadius: CLLocationDistance = 1000
+    var name: String!
+    var lat: Double!
+    var lon: Double!
     var tr: newTracks!
-    var items = [newTracks]()
-    var locationManager = CLLocationManager()
     
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.mapView.delegate = self
+        mapView.delegate = self
+        self.mapView.showsUserLocation = true
         
-     
+        getTrackData()
+        
+        }
+    
+    func getTrackData() {
+        
+        let result = FIRDatabase.database().reference(withPath: "tracks")
+        result.observe(.value, with: { snapshot in
+            for item in snapshot.children {
+                let objects = newTracks (snapshot: item as! FIRDataSnapshot)
+                let lat = objects.lat
+                let lon = objects.lon
+                let name = objects.name
+                let annotation = mapPoint(title: name!, locationName: name!, coordinate: CLLocationCoordinate2D(latitude: lat!, longitude: lon!))
+                self.mapView.addAnnotation(annotation as MKAnnotation)
+            }
+        })
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        let location = view.annotation as! mapPoint
+        let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+        location.mapItem().openInMaps(launchOptions: launchOptions)
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        var annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: "Pin")
+        
+        if annotationView == nil {
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "Pin")
+            annotationView?.canShowCallout = true
+        } else {
+            annotationView?.annotation = annotation
+        }
+        
+        let image = UIImage(named: "navigate.png")
+        let button = UIButton(type: .custom)
+        button.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        button.setImage(image, for: UIControlState())
+        annotationView?.rightCalloutAccessoryView = button
+        return annotationView!
         
     }
+    
 }
 
-    
-    
-        
 
 
 
-        
-        
-        
-        
-        
-        
-        
-        //        mapView.mapType = MKMapType.standard
-        
-        
-
-        
-        
-        
-//        let location = CLLocationCoordinate2D(latitude: 23.0225,longitude: 72.5714)
-//        
-//        let span = MKCoordinateSpanMake(0.05, 0.05)
-//        let region = MKCoordinateRegion(center: location, span: span)
-//        mapView.setRegion(region, animated: true)
-        
-//        let annotation = MKPointAnnotation()
-//        annotation.coordinate = coordinate
-//        annotation.title = "jim"
-//        annotation.subtitle = "smith"
-//        mapView.addAnnotation(annotation)
-        
-
-
- 
 
 

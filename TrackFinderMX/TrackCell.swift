@@ -7,10 +7,7 @@
 //
 
 import UIKit
-import Cosmos
-import MapKit
 import CoreLocation
-import FirebaseDatabase
 
 class TrackCell: UITableViewCell, CLLocationManagerDelegate {
     
@@ -27,12 +24,18 @@ class TrackCell: UITableViewCell, CLLocationManagerDelegate {
     
     override func awakeFromNib() {
         buttonClick.addTarget(self, action: #selector(didTappedButton), for: .touchUpInside)
-        
+        goRacebtn.addTarget(self, action: #selector(didTappedGoRaceButton), for: .touchUpInside)
             }
     
     func didTappedButton() {
         if let completion = completion {
             completion()
+        }
+    }
+    
+    func didTappedGoRaceButton() {
+        if let completion1 = completion1 {
+            completion1()
         }
     }
     

@@ -8,9 +8,6 @@
 
 import UIKit
 import GoogleMobileAds
-import FirebaseDatabase
-import CoreLocation
-import MapKit
 
 class ViewController:  UIViewController{
     
@@ -48,10 +45,14 @@ class ViewController:  UIViewController{
             UIView.animate(withDuration: 0.5, animations: {
                 self.tableContainer.alpha = 0
                 self.mapContainer.alpha = 1
+                
             })
         }
         
     }
+    
+    
+    
 
 }
 

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import GoogleMobileAds
 import FirebaseDatabase
 import CoreLocation
 import MapKit
@@ -51,8 +50,6 @@ class TrackTableView: UIViewController, UITableViewDelegate, UITableViewDataSour
         })
     }
     
-    
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -86,12 +83,24 @@ class TrackTableView: UIViewController, UITableViewDelegate, UITableViewDataSour
                 return()
             }
             
+            cell.completion1 = {
+                let url = URL(string: tr.link)!
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.open(url)
+                }
+                return()
+            }
+            
+            
+            
+            
+            
             return cell
         } else {
             return UITableViewCell()
         }
-        
-        
         
     }
     

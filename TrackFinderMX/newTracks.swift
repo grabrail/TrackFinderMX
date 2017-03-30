@@ -50,8 +50,8 @@ struct newTracks {
         let myLocation = CLLocation(latitude: currentLat, longitude: currentLon)
         let loc = CLLocation(latitude: lat, longitude: lon)
         let distanceInMiles = round(myLocation.distance(from: loc) / 1609.34)
-        
         distance = distanceInMiles
+        
     }
     
     func toAnyObject() -> Any {
