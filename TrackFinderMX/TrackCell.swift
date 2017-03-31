@@ -15,7 +15,7 @@ class TrackCell: UITableViewCell, CLLocationManagerDelegate {
     @IBOutlet weak var countryImage: UIImageView!
     @IBOutlet weak var buttonClick: UIButton!
     @IBOutlet weak var nameLbl: UILabel!
-    @IBOutlet weak var milesLabel: UILabel!
+   
     
     var track: newTracks!
     var completion: ((Void) -> Void?)?
@@ -41,13 +41,10 @@ class TrackCell: UITableViewCell, CLLocationManagerDelegate {
     
     func configureCell(track: newTracks) {
         
-        nameLbl.text = track.name.capitalized
-        countryImage.image = UIImage(named: track.countryImage)
-        milesLabel.text = "\(track.distance)mi"
+        self.nameLbl.text = track.name.capitalized
+        self.countryImage.image = UIImage(named: track.countryImage)
         
-    }
-    
-    
+       }
 }
 
 

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1A0A6B371E784C9900059F9F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A0A6B361E784C9900059F9F /* MapKit.framework */; };
-		1A25F63B1E8CF96400673286 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A25F63A1E8CF96400673286 /* MaterialView.swift */; };
 		1A27E4AD1E8544F300F57523 /* TrackTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A27E4AC1E8544F300F57523 /* TrackTableView.swift */; };
 		1A27E4B11E857D6E00F57523 /* TrackMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A27E4B01E857D6E00F57523 /* TrackMapView.swift */; };
 		1A27E4B31E86BEFB00F57523 /* mapPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A27E4B21E86BEFB00F57523 /* mapPoints.swift */; };
@@ -17,18 +16,17 @@
 		1A4DD96C1E60FD3F002781E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4DD96A1E60FD3F002781E8 /* Main.storyboard */; };
 		1AA55CEB1E8BD54000F8D3DA /* messageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA55CEA1E8BD54000F8D3DA /* messageViewController.swift */; };
 		1AA55CED1E8BFEC800F8D3DA /* addTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA55CEC1E8BFEC800F8D3DA /* addTrack.swift */; };
-		1ABB94EA1E6EB2D700D7B843 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1ABB94E91E6EB2D700D7B843 /* GoogleService-Info.plist */; };
 		1ACC3C1C1E531CDA0080D5D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC3C1B1E531CDA0080D5D4 /* AppDelegate.swift */; };
 		1ACC3C1E1E531CDA0080D5D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC3C1D1E531CDA0080D5D4 /* ViewController.swift */; };
 		1ACC3C231E531CDB0080D5D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ACC3C221E531CDB0080D5D4 /* Assets.xcassets */; };
 		1ACC3C261E531CDB0080D5D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ACC3C241E531CDB0080D5D4 /* LaunchScreen.storyboard */; };
+		1AEDD32C1E8D64FC00928CC4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1AEDD32B1E8D64FC00928CC4 /* GoogleService-Info.plist */; };
 		1AF440221E70384100AB76C7 /* newTracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF440211E70384100AB76C7 /* newTracks.swift */; };
 		20DEE28AD239734DDD02E600 /* Pods_TrackFinderMX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BD617A36938D50F8E34F5A /* Pods_TrackFinderMX.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1A0A6B361E784C9900059F9F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		1A25F63A1E8CF96400673286 /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		1A27E4AC1E8544F300F57523 /* TrackTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackTableView.swift; sourceTree = "<group>"; };
 		1A27E4B01E857D6E00F57523 /* TrackMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackMapView.swift; sourceTree = "<group>"; };
 		1A27E4B21E86BEFB00F57523 /* mapPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapPoints.swift; sourceTree = "<group>"; };
@@ -37,13 +35,13 @@
 		1A4DD96B1E60FD3F002781E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1AA55CEA1E8BD54000F8D3DA /* messageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = messageViewController.swift; sourceTree = "<group>"; };
 		1AA55CEC1E8BFEC800F8D3DA /* addTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addTrack.swift; sourceTree = "<group>"; };
-		1ABB94E91E6EB2D700D7B843 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1ACC3C181E531CDA0080D5D4 /* TrackFinderMX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackFinderMX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ACC3C1B1E531CDA0080D5D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ACC3C1D1E531CDA0080D5D4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1ACC3C221E531CDB0080D5D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1ACC3C251E531CDB0080D5D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1ACC3C271E531CDB0080D5D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1AEDD32B1E8D64FC00928CC4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1AF440211E70384100AB76C7 /* newTracks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newTracks.swift; sourceTree = "<group>"; };
 		4B6B7D550961955BE4FB789A /* Pods-TrackFinderMX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackFinderMX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrackFinderMX/Pods-TrackFinderMX.debug.xcconfig"; sourceTree = "<group>"; };
 		5B295785C22229FBBED8A55D /* Pods-TrackFinderMX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackFinderMX.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrackFinderMX/Pods-TrackFinderMX.release.xcconfig"; sourceTree = "<group>"; };
@@ -88,7 +86,6 @@
 				1A27E4AC1E8544F300F57523 /* TrackTableView.swift */,
 				1A27E4B01E857D6E00F57523 /* TrackMapView.swift */,
 				1AA55CEA1E8BD54000F8D3DA /* messageViewController.swift */,
-				1A25F63A1E8CF96400673286 /* MaterialView.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -137,8 +134,8 @@
 				1ACC3C1B1E531CDA0080D5D4 /* AppDelegate.swift */,
 				1ACC3C221E531CDB0080D5D4 /* Assets.xcassets */,
 				1A4DD96A1E60FD3F002781E8 /* Main.storyboard */,
-				1ABB94E91E6EB2D700D7B843 /* GoogleService-Info.plist */,
 				1ACC3C241E531CDB0080D5D4 /* LaunchScreen.storyboard */,
+				1AEDD32B1E8D64FC00928CC4 /* GoogleService-Info.plist */,
 				1ACC3C271E531CDB0080D5D4 /* Info.plist */,
 			);
 			path = TrackFinderMX;
@@ -233,9 +230,9 @@
 			files = (
 				1ACC3C261E531CDB0080D5D4 /* LaunchScreen.storyboard in Resources */,
 				1ACC3C231E531CDB0080D5D4 /* Assets.xcassets in Resources */,
+				1AEDD32C1E8D64FC00928CC4 /* GoogleService-Info.plist in Resources */,
 				1A4DD96C1E60FD3F002781E8 /* Main.storyboard in Resources */,
 				1A3C0F101E547A3000A33D13 /* defused.ttf in Resources */,
-				1ABB94EA1E6EB2D700D7B843 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,7 +295,6 @@
 				1AA55CED1E8BFEC800F8D3DA /* addTrack.swift in Sources */,
 				1ACC3C1E1E531CDA0080D5D4 /* ViewController.swift in Sources */,
 				1ACC3C1C1E531CDA0080D5D4 /* AppDelegate.swift in Sources */,
-				1A25F63B1E8CF96400673286 /* MaterialView.swift in Sources */,
 				1A3C0F071E533DE900A33D13 /* TrackCell.swift in Sources */,
 				1AA55CEB1E8BD54000F8D3DA /* messageViewController.swift in Sources */,
 				1A27E4B11E857D6E00F57523 /* TrackMapView.swift in Sources */,

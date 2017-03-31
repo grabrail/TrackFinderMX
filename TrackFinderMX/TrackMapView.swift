@@ -11,9 +11,9 @@ import MapKit
 import FirebaseDatabase
 import CoreLocation
 
-
-
-class TrackMapView: UIViewController, MKMapViewDelegate {
+class TrackMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+    
+    var locationManager: CLLocationManager!
 
     @IBOutlet weak var mapView: MKMapView!
     let regionRadius: CLLocationDistance = 1000
@@ -22,12 +22,22 @@ class TrackMapView: UIViewController, MKMapViewDelegate {
     var lon: Double!
     var tr: newTracks!
     
-   
     override func viewDidLoad() {
         super.viewDidLoad()
         
         mapView.delegate = self
-        self.mapView.showsUserLocation = true
+        mapView.showsUserLocation = true
+        
+        if (CLLocationManager.locationServicesEnabled()) {
+            locationManager = CLLocationManager()
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.requestAlwaysAuthorization()
+            locationManager.startUpdatingHeading()
+            locationManager.startUpdatingLocation()
+            mapView.mapType = .hybrid
+            
+        }
         
         getTrackData()
         
@@ -72,6 +82,14 @@ class TrackMapView: UIViewController, MKMapViewDelegate {
         annotationView?.rightCalloutAccessoryView = button
         return annotationView!
         
+    }
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [Any]!) {
+        let location = locations.last as! CLLocation
+        
+        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        self.mapView.setRegion(region, animated: true)
     }
     
 }

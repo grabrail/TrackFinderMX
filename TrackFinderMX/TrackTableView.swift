@@ -8,7 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
-import CoreLocation
+//import CoreLocation
 import MapKit
 
 class TrackTableView: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, CLLocationManagerDelegate {
@@ -31,7 +31,9 @@ class TrackTableView: UIViewController, UITableViewDelegate, UITableViewDataSour
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
+        locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
+        
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -52,7 +54,7 @@ class TrackTableView: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
             
             self.items = newItems
-            self.items.sort(by: {$0.distance < $1.distance})
+            //self.items.sort(by: {$0.distance < $1.distance})
             self.tableView.reloadData()
             })
         
@@ -82,8 +84,8 @@ class TrackTableView: UIViewController, UITableViewDelegate, UITableViewDataSour
                 cell.configureCell(track: tr)
             }
             
-            cell.configureCell(track: tr)
-            
+            //cell.configureCell(track: tr)
+                        
             cell.completion = {
                 let coordinate = CLLocationCoordinate2DMake(tr.lat,tr.lon)
                 let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate,addressDictionary:nil))

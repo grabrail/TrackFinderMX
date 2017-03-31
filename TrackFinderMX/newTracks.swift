@@ -10,7 +10,7 @@ import Foundation
 import FirebaseDatabase
 import CoreLocation
 
-struct newTracks {
+class newTracks {
     
     //Declerations
     var locationManager = CLLocationManager()
@@ -20,18 +20,18 @@ struct newTracks {
     let countryImage: String!
     let link: String!
     let ref: FIRDatabaseReference?
-    let distance: Double
+    
     
    
     //Initialize
-    init(name: String, trackId: Int, postcode: String, trackType: String, trackURL: String, locID: Int, lat: Double, lon: Double, phoneNumber: String, email: String, rating: Double, numrating: Double, totalrating: Double, countryImage: String, link: String, distance: Double) {
+    init(name: String, lat: Double, lon: Double, countryImage: String, link: String) {
         self.name = name
         self.ref = nil
         self.lat = lat
         self.lon = lon
         self.countryImage = countryImage
         self.link = link
-        self.distance = distance
+        
      }
     
     //Initialize data from Firebase
@@ -45,14 +45,7 @@ struct newTracks {
         countryImage = snapshotValue["country"] as! String
         link = snapshotValue["link"] as! String
         
-        let currentLat = self.locationManager.location!.coordinate.latitude
-        let currentLon = self.locationManager.location!.coordinate.longitude
-        let myLocation = CLLocation(latitude: currentLat, longitude: currentLon)
-        let loc = CLLocation(latitude: lat, longitude: lon)
-        let distanceInMiles = round(myLocation.distance(from: loc) / 1609.34)
-        distance = distanceInMiles
-        
-    }
+        }
     
     func toAnyObject() -> Any {
         return [
@@ -61,7 +54,7 @@ struct newTracks {
             "lon": lon,
             "countryImage": countryImage,
             "link": link,
-            "distance": distance
+            
         ]
         
      }
