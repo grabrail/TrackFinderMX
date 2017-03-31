@@ -31,12 +31,16 @@ class messageViewController: UIViewController {
         var name: String
         var country: String
         var postcode: String
+        
         name = trackNameField.text!
         country = countryField.text!
         postcode = postcodeField.text!
+        
         let newTrack = addTrack(name: name, country: country, postcode: postcode)
         let newTrackRef = self.ref.child(name.lowercased())
         newTrackRef.setValue(newTrack.toAnyObject())
+        
+        
         
         let alertController = UIAlertController(title: "Thank You!", message: "Your Submission Has Been Recieved", preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
