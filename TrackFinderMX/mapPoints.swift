@@ -24,8 +24,8 @@ class mapPoint: NSObject, MKAnnotation {
     }
     
     func mapItem() -> MKMapItem {
-        let addressDictionary = [String(CNPostalAddressStreetKey): title]
-        let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDictionary)
+        let address = [String(CNPostalAddressStreetKey): title!]
+        let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: address)
         let mapItem = MKMapItem(placemark: placemark)
         mapItem.name = title
         
